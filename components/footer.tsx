@@ -1,10 +1,21 @@
 import React from 'react';
 
+import { FooterBody, Column } from '../styles/global';
+
 const Footer = (): JSX.Element => {
   return (
-    <div>
-      <p> Footer </p>
-    </div>
+    <FooterBody>
+      <h5> GitBounty </h5>{' '}
+      <Column>
+        <h6> PRODUCT </h6> <a> Resources </a>
+      </Column>
+      <Column>
+        <h6> LEGAL </h6> <a> Resources </a>
+      </Column>
+      <Column>
+        <h6> SERVICE </h6> <a> Resources </a>
+      </Column>
+    </FooterBody>
   );
 };
 

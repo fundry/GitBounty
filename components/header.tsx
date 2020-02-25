@@ -6,7 +6,7 @@ import { HeaderBody, Button } from '../styles/global';
 const Header = (): JSX.Element => {
   return (
     <HeaderBody>
-      <h4> Git-Bounty </h4>
+      <h4> GitBounty </h4>
 
       <div>
         <a href="/"> Organziations </a>

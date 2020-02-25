@@ -1,11 +1,24 @@
 import styled from 'styled-components'
 
-const Text: String = styled.p`
-    font-size : 1.1rem;
+const Text: any = styled.p`
+    font-size : 1.1rem; 
+     text-align : ${props => props.center ? "center" : null } ;
 `
 
-const Body: String = styled.p`
+const Body: any = styled.div`
     padding: 1rem;
+`
+
+const BannerBody: any = styled.nav`
+    padding: 5rem ;
+    background : transparent;
+     text-align : center;
+    h2 {
+        color : grey;  
+    }
+    a {
+        padding-right  : 10px;
+    }
 `
 
 const HeaderBody: any = styled.nav`
@@ -30,6 +43,30 @@ const Button: any = styled.button`
     color: #000
 `
 
+const FooterBody: any = styled.nav`
+    padding: 1rem;
+    display: flex;
+    background : transparent;
+    justify-content : space-between;
+    h5 { 
+        text-align  : center;
+        color : grey; 
+        padding-top: 2%;
+    }
+    a {
+        padding-right  : 10px;
+    }
+`
+
+const Column: any = styled.nav`
+    padding: 0.4rem;
+    display: column;
+    background : transparent;
+    a {
+        padding-right  : 10px;
+    }
+`
+
 export {
-    Text , HeaderBody , Body , Button
+    Text , HeaderBody , Body , Button , FooterBody ,  Column,  BannerBody
 }
