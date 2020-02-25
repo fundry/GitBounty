@@ -4,6 +4,7 @@ import { Footer, Banner } from '../../components';
 import { Body, Text } from '../../styles/global';
 
 import Features from './features';
+import Issues from './issues/issues';
 
 const Home = (): JSX.Element => {
   return (
@@ -22,6 +23,7 @@ const Home = (): JSX.Element => {
         </Text>
 
         <Features />
+        <Issues />
       </Body>
 
       <Footer />
