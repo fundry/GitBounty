@@ -1,7 +1,8 @@
 import React from 'react';
 
-// import Feature from '../../assets/svg/feature.svg';
 import { Items, Text, Title } from '../../styles/global';
+
+const Feature = require('../../assets/svg/feature.svg');
 
 const data = [
   {
@@ -30,8 +31,6 @@ const data = [
   },
 ];
 
-//TODO: setup assets loader. <img src={Feature} alt="feature" style={{}} />
-
 const Features = (): JSX.Element => {
   return (
     <div>
@@ -39,6 +38,8 @@ const Features = (): JSX.Element => {
         {data.map(({ id, title, summary }) => {
           return (
             <div key={id}>
+              <img src={Feature} alt="feature" style={{}} />
+
               <Title center> {title} </Title>
               <Text center> {summary} </Text>
             </div>
