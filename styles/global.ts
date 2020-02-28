@@ -40,9 +40,10 @@ const HeaderBody: any = styled.nav`
 `;
 
 const Button: any = styled.button`
-  padding: 0.5rem 2.5rem;
+  padding: 0.7rem 3rem;
   border: 1px solid #000;
   outline: 0px;
+  border-radius: 5rem;
   background: transparent;
   color: #000;
 `;

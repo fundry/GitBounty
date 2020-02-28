@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import { Provider } from 'mobx-react';
+import { ApolloProvider } from '@apollo/react-hooks';
 
 import Home from './home/home';
 import { Auth } from '../state/index';
+import Client from '../data/config';
 
 const Index = () => (
   <div>
@@ -21,9 +23,11 @@ const Index = () => (
       />
     </Head>
 
-    <Provider AuthStore={Auth}>
-      <Home />
-    </Provider>
+    <ApolloProvider client={Client}>
+      <Provider AuthStore={Auth}>
+        <Home />
+      </Provider>
+    </ApolloProvider>
     <style jsx>{`
       /* @media (max-width: 600px) {
         .grid {

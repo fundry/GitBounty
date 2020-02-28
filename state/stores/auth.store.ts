@@ -1,10 +1,25 @@
 import { observable, decorate, action } from 'mobx';
-// import { create, persist } from 'mobx-persist';
-//
-// const hydrate = create({
-//   storage: localStorage,
-//   jsonify: true,
-// });
+import { Octokit } from '@octokit/rest';
+
+const octokit = new Octokit({
+  auth: '5109216f8601ecfeaa29bcb35cc22e6f1ecbd24b',
+  userAgent: '',
+  previews: [],
+  timeZone: '',
+  log: {
+    error: console.error(),
+  },
+});
+
+const connect = async () => {
+  const { data: pullRequest } = await octokit.pulls.get({
+    owner: 'octokit',
+    repo: 'rest.js',
+    pull_number: 123,
+  });
+};
+
+connect();
 
 class AuthStore {
   authenticated = true;
