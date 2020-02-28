@@ -1,6 +1,8 @@
 import Head from 'next/head';
+import { Provider } from 'mobx-react';
 
 import Home from './home/home';
+import { Auth } from '../state/index';
 
 const Index = () => (
   <div>
@@ -19,7 +21,9 @@ const Index = () => (
       />
     </Head>
 
-    <Home />
+    <Provider AuthStore={Auth}>
+      <Home />
+    </Provider>
     <style jsx>{`
       /* @media (max-width: 600px) {
         .grid {

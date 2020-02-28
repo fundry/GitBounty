@@ -6,7 +6,7 @@ import { Body, Text } from '../../styles/global';
 import Features from './features';
 import Issues from './issues/issues';
 
-const Home = (): JSX.Element => {
+const Home = (props): JSX.Element => {
   return (
     <div>
       <Head>
