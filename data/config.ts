@@ -1,16 +1,17 @@
-import ApolloClient from 'apollo-boost'
-import fetch from 'isomorphic-fetch'
+import ApolloClient from "apollo-boost";
+import fetch from "isomorphic-fetch";
 
-const token = process.env.GIT_TOKEN
-const URL = 'https://api.github.com/graphql'
+const token = process.env.GIT_TOKEN;
+console.log(token, "to");
 
 const Client = new ApolloClient({
-    uri: URL,
-    headers: {
-        "Authorization" : `bearer ${token}`
-    } , 
-  fetch, 
-  onError: (error) => console.log(error) , 
-})
+  uri: URL,
+  headers: {
+    Authorization: `bearer ${token}`
+  },
 
-export default Client 
+  fetch,
+  onError: error => console.log(error)
+});
+
+export default Client;

@@ -20,6 +20,10 @@
 .env*
 .env
 
+# TODO: fix env vars
+# env vars arent working yet. My keys are here
+/data/config.ts
+
 # debug
 npm-debug.log*
 yarn-debug.log*

@@ -1,16 +1,18 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Text: any = styled.p`
-  font-size: 1.1rem;
-  text-align: ${(props) => (props.center ? 'center' : null)};
+  font-size: ${props => (props.small ? "1.2rem" : "1.3rem")};
+  text-align: ${props => (props.center ? "center" : null)};
 `;
 
-const Body: any = styled.div`padding: 1rem;`;
+const Body: any = styled.div`
+  padding: 1rem;
+`;
 
-const Title: any = styled.h3`
-  font-size: ${(props) => (props.small ? '2rem ' : null)};
-  font-weight: ${(props) => (props.unbold ? 'lighter' : null)};
-  text-align: ${(props) => (props.center ? 'center' : null)};
+const Title: any = styled.h4`
+  font-size: ${props => (props.small ? "1.5rem " : null)};
+  font-weight: ${props => (props.unbold ? "lighter" : null)};
+  text-align: ${props => (props.center ? "center" : null)};
 `;
 
 const BannerBody: any = styled.nav`
@@ -43,7 +45,7 @@ const Button: any = styled.button`
   padding: 0.7rem 3rem;
   border: 1px solid #000;
   outline: 0px;
-  border-radius: 5rem;
+  border-radius: ${props => (props.round ? "5rem" : null)};
   background: transparent;
   color: #000;
 `;
@@ -73,19 +75,58 @@ const Column: any = styled.nav`
 `;
 
 const autoGrid = (minColumnWidth = 250, gridGap = 0) => ({
-  display: 'grid',
+  display: "grid",
   gridTemplateColumns: `repeat(auto-fill, minmax(${minColumnWidth}px, 3fr))`,
-  gridGap,
+  gridGap
 });
 
 const Items = styled.div({
   ...autoGrid(200, 20),
-  padding: '1em',
-  marginLeft: '0.5em',
+  padding: "1em",
+  marginLeft: "0.5em"
 });
 
+const IssueCard = styled.div`
+  padding: 0.5em 1em;
+  width: 17rem;
+  box-shadow: 0px 3px 4px grey;
+`;
+
+const IssueItems = styled.div({
+  ...autoGrid(200, 20),
+  padding: "1em",
+  marginLeft: "0.5em"
+});
+
+const Input = styled.input`
+  padding: 0.5em 1.5em;
+  border: ${props => (props.borderless ? "0px" : "1px solid #000")};
+  border-radius: 5px;
+  width: 30rem;
+  outline: 0px;
+`;
+
+const InputBox = styled.div`
+  padding: 0.5em 1em;
+  border: 1px solid #000;
+  border-radius: 5px;
+  width: 30rem;
+`;
+
+const LoginBody = styled.div`
+  margin: 10rem 2rem;
+  #link {
+    color: #0e2f5a;
+  }
+`;
+
 export {
+  Input,
+  IssueCard,
+  InputBox,
+  IssueItems,
   Items,
+  LoginBody,
   Title,
   Text,
   HeaderBody,
@@ -93,5 +134,5 @@ export {
   Button,
   FooterBody,
   Column,
-  BannerBody,
+  BannerBody
 };

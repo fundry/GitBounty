@@ -1,24 +1,13 @@
-import React from 'react';
-import Head from 'next/head';
-import { gql } from 'apollo-boost';
-import { useQuery } from '@apollo/react-hooks';
+import React from "react";
+import Head from "next/head";
+import { gql } from "apollo-boost";
+import { useQuery } from "@apollo/react-hooks";
 
-import { Footer, Banner } from '../../components';
-import { Body, Text } from '../../styles/global';
+import { Footer, Banner } from "../../components";
+import { Body, Text } from "../../styles/global";
 
-import Features from './features';
-import Issues from './issues/issues';
-
-// const octokit = new Octokit({
-//   auth: '5109216f8601ecfeaa29bcb35cc22e6f1ecbd24b',
-//   userAgent: '',
-//   previews: [],
-//   timeZone: '',
-//   baseUrl: 'https://api.github.com',
-//   log: {
-//     error: console.error(),
-//   },
-// });
+import Features from "./features";
+import Issues from "./issues/issues";
 
 const T = gql`
   {
@@ -37,7 +26,7 @@ const T = gql`
 const Home = (props): JSX.Element => {
   const { loading, data, error } = useQuery(T);
 
-  console.log(loading, error, data);
+  // console.log(loading, error, data);
 
   return (
     <div>
@@ -51,10 +40,11 @@ const Home = (props): JSX.Element => {
         <Text center>
           Home Home Home Home Home Home Home Home Home Home Home Home Home Home
           Home Home Home Home Home Home Home Home Home Home Home Home Home Home
-          Home Home{' '}
+          Home Home{" "}
         </Text>
 
         <Features />
+        <br />
         <Issues />
       </Body>
 
