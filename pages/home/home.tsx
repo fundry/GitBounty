@@ -30,11 +30,7 @@ const Home = (props): JSX.Element => {
 
   return (
     <div>
-      <Head>
-        <title>GitBounty | Home</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Banner />
+      <Banner head="Home" />
 
       <Body>
         <Text center>

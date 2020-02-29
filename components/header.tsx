@@ -2,14 +2,19 @@ import React from "react";
 import Router from "next/router";
 import Flex from "styled-flex-component";
 
+import Head from "next/head";
 import { HeaderBody, Button } from "../styles/global";
 import { inject, observer } from "mobx-react";
 
 const Header = (props): JSX.Element => {
   const { authenticated } = props.AuthStore;
-  console.log(authenticated, "auth");
+
   return (
     <HeaderBody>
+      <Head>
+        <title> GitBounty | {props.head} </title>
+      </Head>
+
       <h4> GitBounty </h4>
 
       <Flex>
@@ -19,7 +24,7 @@ const Header = (props): JSX.Element => {
           <div
             onClick={() => {
               Router.push({
-                pathname: "pages/app/profile"
+                pathname: "/app/profile/profile"
               });
             }}
           >

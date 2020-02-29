@@ -7,6 +7,7 @@ const Login = () => {
   return (
     <LoginBody>
       <Head>
+        <title>GitBounty | Login</title>
         <meta charSet="utf-8" />
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/.bundjs/bootstraple.min.js" />
 
