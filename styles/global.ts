@@ -36,9 +36,14 @@ const HeaderBody: any = styled.nav`
   box-shadow: 0px 3px 4px grey;
   justify-content: space-between;
   h4 {
-    color: grey;
+    color: #0e2f5a;
+    &:hover {
+      color: grey;
+      cursor: pointer;
+    }
   }
   a {
+    font-size: 1.1em;
     padding-right: 10px;
   }
 `;

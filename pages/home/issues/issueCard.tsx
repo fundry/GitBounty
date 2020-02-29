@@ -1,8 +1,12 @@
 import React from "react";
 import Flex from "styled-flex-component";
-import { DiAngularSimple, DiPostgresql, DiJavascript } from "react-icons/di";
+import {
+  DiAngularSimple,
+  DiPostgresql,
+  DiJavascript,
+  DiGithub
+} from "react-icons/di";
 import { FiClock } from "react-icons/fi";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 import {
@@ -21,11 +25,6 @@ interface CustomProps {
 }
 
 const IssueCard = ({ id, org, bug, summary }: CustomProps): JSX.Element => {
-  const router = useRouter();
-
-  // const { pid } = router.query;
-  console.log(router.query);
-
   return (
     <IssueItems>
       <Card id={id}>
@@ -39,12 +38,19 @@ const IssueCard = ({ id, org, bug, summary }: CustomProps): JSX.Element => {
               bottom: "5ren"
             }}
           />
-          <Title small center>
-            {org}
-          </Title>{" "}
+
+          <div>
+            <Flex jusifyBetween>
+              <Title small center>
+                {org}
+              </Title>
+
+              <DiGithub style={{ fontSize: "2em", color: "grey" }} />
+            </Flex>
+          </div>
         </Flex>
 
-        <Link href="/home/issues/[org]" as={`/home/issues/${id}`}>
+        <Link href="/home/issues/[issue]" as={`/home/issues/${id}`}>
           <a>
             <Title unbold small center>
               {bug}{" "}
