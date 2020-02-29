@@ -12,8 +12,8 @@ const Client = new ApolloClient({
     Authorization: `bearer ${token}`
   },
 
-  fetch,
-  onError: error => console.log(error)
+  fetch
+  // onError: error => console.log(error)
 });
 
 export default Client;

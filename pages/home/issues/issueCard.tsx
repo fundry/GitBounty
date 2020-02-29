@@ -2,6 +2,8 @@ import React from "react";
 import Flex from "styled-flex-component";
 import { DiAngularSimple, DiPostgresql, DiJavascript } from "react-icons/di";
 import { FiClock } from "react-icons/fi";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 import {
   Text,
@@ -19,6 +21,11 @@ interface CustomProps {
 }
 
 const IssueCard = ({ id, org, bug, summary }: CustomProps): JSX.Element => {
+  const router = useRouter();
+
+  // const { pid } = router.query;
+  console.log(router.query);
+
   return (
     <IssueItems>
       <Card id={id}>
@@ -32,17 +39,21 @@ const IssueCard = ({ id, org, bug, summary }: CustomProps): JSX.Element => {
               bottom: "5ren"
             }}
           />
-
           <Title small center>
             {org}
-          </Title>
+          </Title>{" "}
         </Flex>
-        <Title unbold small center>
-          {bug}{" "}
-        </Title>
+
+        <Link href="/home/issues/[org]" as={`/home/issues/${id}`}>
+          <a>
+            <Title unbold small center>
+              {bug}{" "}
+            </Title>{" "}
+          </a>
+        </Link>
+
         <Text small>{summary}</Text>
         <hr />
-
         <Flex justifyBetween>
           <p> EASY </p>
 
@@ -51,13 +62,11 @@ const IssueCard = ({ id, org, bug, summary }: CustomProps): JSX.Element => {
             <p style={{ marginLeft: "7px" }}> 5 days </p>
           </Flex>
         </Flex>
-
         <div>
           <DiAngularSimple style={{ fontSize: "2rem" }} />{" "}
           <DiJavascript style={{ fontSize: "2rem" }} />{" "}
           <DiPostgresql style={{ fontSize: "2rem" }} />
         </div>
-
         <Flex justifyCenter>
           <Button> Claim </Button>{" "}
         </Flex>

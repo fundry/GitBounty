@@ -1,6 +1,7 @@
 import React from "react";
 import Flex from "styled-flex-component";
 import { FiSearch } from "react-icons/fi";
+import Link from "next/link";
 
 import { Body, Text, Items, Input, InputBox } from "../../../styles/global";
 import IssueCard from "./issueCard";

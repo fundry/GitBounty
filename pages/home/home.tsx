@@ -1,10 +1,10 @@
 import React from "react";
-import Head from "next/head";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
 import { Footer, Banner } from "../../components";
 import { Body, Text } from "../../styles/global";
+import Wrapper from "../wrapper";
 
 import Features from "./features";
 import Issues from "./issues/issues";
@@ -52,4 +52,12 @@ const Home = (props): JSX.Element => {
   );
 };
 
-export default Home;
+const Main = () => {
+  return (
+    <Wrapper>
+      <Home />{" "}
+    </Wrapper>
+  );
+};
+
+export default Main;
