@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import { Text } from '../../../styles/global';
-import IssueCard from './issueCard';
+import { Text } from "../../../styles/global";
+import IssueCard from "./issueCard";
 
 const AllIssues = (): JSX.Element => {
   return (
     <div>
       <Text> AllIssues </Text>
 
-      <IssueCard />
+      <IssueCard id={1} org="" bug="" summary="" />
     </div>
   );
 };
