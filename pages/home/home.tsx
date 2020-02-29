@@ -39,11 +39,14 @@ const Home = (props): JSX.Element => {
           Home Home{" "}
         </Text>
 
+        <br />
         <Features />
         <br />
-        <Issues />
       </Body>
 
+      <Issues />
+
+      <br />
       <Footer />
     </div>
   );

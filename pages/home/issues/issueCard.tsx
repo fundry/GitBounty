@@ -1,5 +1,7 @@
 import React from "react";
 import Flex from "styled-flex-component";
+import { DiAngularSimple, DiPostgresql, DiJavascript } from "react-icons/di";
+import { FiClock } from "react-icons/fi";
 
 import {
   Text,
@@ -22,19 +24,39 @@ const IssueCard = ({ id, org, bug, summary }: CustomProps): JSX.Element => {
       <Card id={id}>
         <Flex>
           <img
-            alt="organisation"
-            src={"../../../assets/svg/feature.svg"}
-            style={{ paddingRight: "10px" }}
+            alt="org"
+            src="../../../assets/images/fb.png"
+            style={{
+              paddingRight: "10px",
+              position: "absolute",
+              bottom: "5ren"
+            }}
           />
 
-          <Title unbold small center>
+          <Title small center>
             {org}
           </Title>
         </Flex>
-        <Title small center>
+        <Title unbold small center>
           {bug}{" "}
         </Title>
         <Text small>{summary}</Text>
+        <hr />
+
+        <Flex justifyBetween>
+          <p> EASY </p>
+
+          <Flex>
+            <FiClock style={{ fontSize: "1.3em" }} />
+            <p style={{ marginLeft: "7px" }}> 5 days </p>
+          </Flex>
+        </Flex>
+
+        <div>
+          <DiAngularSimple style={{ fontSize: "2rem" }} />{" "}
+          <DiJavascript style={{ fontSize: "2rem" }} />{" "}
+          <DiPostgresql style={{ fontSize: "2rem" }} />
+        </div>
 
         <Flex justifyCenter>
           <Button> Claim </Button>{" "}

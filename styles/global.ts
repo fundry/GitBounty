@@ -7,11 +7,13 @@ const Text: any = styled.p`
 
 const Body: any = styled.div`
   padding: 1rem;
+  background: ${props => (props.blue ? "#0e2f5a" : null)};
+  color: ${props => (props.white ? "#fff" : null)};
 `;
 
 const Title: any = styled.h4`
   font-size: ${props => (props.small ? "1.5rem " : null)};
-  font-weight: ${props => (props.unbold ? "lighter" : null)};
+  font-weight: ${props => (props.unbold ? "normal" : null)};
   text-align: ${props => (props.center ? "center" : null)};
 `;
 
@@ -88,8 +90,11 @@ const Items = styled.div({
 
 const IssueCard = styled.div`
   padding: 0.5em 1em;
-  width: 17rem;
-  box-shadow: 0px 3px 4px grey;
+  width: 27rem;
+  box-shadow: 0px 2px 3px grey;
+  background: #fff;
+  color: #000;
+  border-radius: 0.5rem;
 `;
 
 const IssueItems = styled.div({
@@ -99,18 +104,21 @@ const IssueItems = styled.div({
 });
 
 const Input = styled.input`
-  padding: 0.5em 1.5em;
+  padding: 0.3em 1em;
   border: ${props => (props.borderless ? "0px" : "1px solid #000")};
   border-radius: 5px;
   width: 30rem;
   outline: 0px;
+  color: #0e2f5a;
+  font-size: 1.1em;
 `;
 
 const InputBox = styled.div`
-  padding: 0.5em 1em;
+  padding: 0.5em 0.4em;
   border: 1px solid #000;
   border-radius: 5px;
   width: 30rem;
+  background: #fff;
 `;
 
 const LoginBody = styled.div`

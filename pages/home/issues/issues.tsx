@@ -2,7 +2,7 @@ import React from "react";
 import Flex from "styled-flex-component";
 import { FiSearch } from "react-icons/fi";
 
-import { Text, Items, Input, InputBox } from "../../../styles/global";
+import { Body, Text, Items, Input, InputBox } from "../../../styles/global";
 import IssueCard from "./issueCard";
 
 const data = [
@@ -22,14 +22,14 @@ const data = [
 
 const Issues = (): JSX.Element => {
   return (
-    <div>
+    <Body blue white>
       <Flex justifyBetween>
         <Text> 1,400,00 Available Issues </Text>
 
         <InputBox>
           <Flex>
             <Input borderless placeholder="Search name or type" />
-            <FiSearch style={{ fontSize: "2em" }} />
+            <FiSearch style={{ fontSize: "1.7em", color: "#0e2f5a" }} />
           </Flex>
         </InputBox>
       </Flex>
@@ -37,7 +37,7 @@ const Issues = (): JSX.Element => {
       {data.map(({ id, orgname, Bug, Summary }) => {
         return <IssueCard id={id} org={orgname} bug={Bug} summary={Summary} />;
       })}
-    </div>
+    </Body>
   );
 };
 
