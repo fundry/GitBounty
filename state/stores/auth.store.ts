@@ -1,9 +1,10 @@
 import { observable, decorate, action } from "mobx";
 
-const CLIENT_ID = process.env.CLIENT_ID;
-const CLIENT_SECRET = process.env.CLIENT_SECRET;
+const ID = process.env.CLIENT_ID;
+console.log(ID, "C");
+const SECRET = process.env.CLIENT_SECRET;
 
-const url = `https://github.com/login/oauth/authorize?${CLIENT_ID}&scope=repo,+user+`;
+const url = `https://github.com/login/oauth/authorize?client_id=${ID}&scope=repo,+user+`;
 const width = 600;
 const height = 600;
 

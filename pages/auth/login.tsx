@@ -21,7 +21,6 @@ const Login = (props): JSX.Element => {
   // };
 
   const { AuthUser } = props.AuthStore;
-  console.log(AuthUser, "store");
   return (
     <Wrapper>
       <LoginBody>
