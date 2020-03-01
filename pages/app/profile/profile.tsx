@@ -4,6 +4,8 @@ import Header from "../../../components/header";
 import { Text } from "../../../styles/global";
 import Wrapper from "../../wrapper";
 
+import { inject, observer } from "mobx-react";
+
 const Profile = () => {
   return (
     <Wrapper>
@@ -16,4 +18,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default inject("AuthStore")(observer(Profile));

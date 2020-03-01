@@ -1,6 +1,7 @@
 import React from "react";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
+import { inject, observer } from "mobx-react";
 
 import { Footer, Banner } from "../../components";
 import { Body, Text } from "../../styles/global";
@@ -55,9 +56,9 @@ const Home = (props): JSX.Element => {
 const Main = () => {
   return (
     <Wrapper>
-      <Home />{" "}
+      <Home />
     </Wrapper>
   );
 };
 
-export default Main;
+export default inject("AuthStore")(observer(Main));

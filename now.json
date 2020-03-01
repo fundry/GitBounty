@@ -1,7 +1,9 @@
 {
-    "build": {
-        "env": {
-            "GIT_TOKEN": "@git-token"
-        }
+  "build": {
+    "env": {
+      "GIT_TOKEN": "@git-token",
+      "CLIENT_ID": "@client-id",
+      "CLIENT_SECRET": "@client-secret"
     }
+  }
 }
