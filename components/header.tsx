@@ -22,7 +22,7 @@ const Header = (props): JSX.Element => {
 
       <Flex>
         <a href="/"> Organziations </a>
-        <a href="/"> Bounties </a>
+        <a href="/home/issues/allIssues"> Issues </a>
         {authenticated ? (
           <div
             onClick={() => {
@@ -41,6 +41,7 @@ const Header = (props): JSX.Element => {
               });
             }}
             round
+            small
           >
             Login
           </Button>

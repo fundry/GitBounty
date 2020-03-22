@@ -1,15 +1,12 @@
 import { observable, decorate, action } from "mobx";
+import Axios from "axios";
 
 const ID = process.env.CLIENT_ID;
-console.log(ID, "C");
 const SECRET = process.env.CLIENT_SECRET;
 
 const url = `https://github.com/login/oauth/authorize?client_id=${ID}&scope=repo,+user+`;
 const width = 600;
 const height = 600;
-
-if (process.browser) {
-}
 
 class AuthStore {
   authenticated = false;
@@ -19,13 +16,27 @@ class AuthStore {
       let left = window.innerWidth / 2 - width / 2;
       let top = window.innerHeight / 2 - height / 2;
 
-      window.open(
-        url,
-        "",
-        `toolbar=no, location=no, directories=no, status=no, menubar=no,
-        scrollbars=no, resizable=no, copyhistory=no, width=${width},
-        height=${height}, top=${top}, left=${left}`
-      );
+      try {
+        // window.open(
+        //   url, "" ,
+        //   `toolbar=no, location=no, directories=no, status=no, menubar=no,
+        // scrollbars=no, resizable=no, copyhistory=no, width=${width},
+        // height=${height}, top=${top}, left=${left}`
+        // );
+
+        Axios.get("https://github.com/login/oauth/authorize", {
+          params: {
+            client_id: "0db14f58ca77506e9c7e",
+            scope: "repo, user "
+          },
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "*"
+          }
+        });
+      } catch (error) {
+        console.log(error, "errror");
+      }
     }
 
     this.authenticated = true;

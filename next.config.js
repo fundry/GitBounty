@@ -10,5 +10,8 @@ module.exports = {
 
   devIndicators: {
     autoPrerender: false
+  },
+  env: {
+    CLIENT_ID: "0db14f58ca77506e9c7e"
   }
 };

@@ -1,6 +1,8 @@
 import React from "react";
+import { IoIosArrowRoundForward } from "react-icons/io";
+import Router from "next/router";
 
-import { BannerBody, Button } from "../styles/global";
+import { BannerBody, Button, Hover } from "../styles/global";
 import Header from "./header";
 
 const Banner = (props: any): JSX.Element => {
@@ -8,8 +10,21 @@ const Banner = (props: any): JSX.Element => {
     <div>
       <Header head={props.head} />
       <BannerBody>
-        <h2> Github issues brought together </h2>{" "}
-        <Button round> View Organizations </Button>
+        <h1> Github Issues Brought Together </h1>{" "}
+        <Button
+          onClick={() => {
+            Router.push({
+              pathname: "/home/organizations"
+            });
+          }}
+          flex
+          round
+        >
+          View Organizations
+          <IoIosArrowRoundForward
+            style={{ marginLeft: "10px", fontSize: "2em" }}
+          />
+        </Button>
       </BannerBody>
     </div>
   );

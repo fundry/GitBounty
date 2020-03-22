@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 const Text: any = styled.p`
   font-size: ${props => (props.small ? "1.2rem" : "1.3rem")};
@@ -21,8 +22,9 @@ const BannerBody: any = styled.nav`
   padding: 5rem;
   background: transparent;
   text-align: center;
-  h2 {
+  h1 {
     color: grey;
+    margin: 0.5em;
   }
   a {
     padding-right: 10px;
@@ -49,12 +51,22 @@ const HeaderBody: any = styled.nav`
 `;
 
 const Button: any = styled.button`
-  padding: 0.7rem 3rem;
+  padding: ${props => (props.small ? "0.3rem 1.7rem" : "0.7rem 3rem")};
   border: 1px solid #000;
   outline: 0px;
   border-radius: ${props => (props.round ? "5rem" : null)};
   background: transparent;
   color: #000;
+  font-size: 1.2em;
+  display: ${props => (props.flex ? "flex" : null)} ${media.lessThan("medium")`
+  border-radius: ${props => (props.round ? "4rem" : null)};
+  `};
+  ${media.lessThan("large")`
+  border-radius: ${props => (props.round ? "4rem" : null)};
+  `};
+  ${media.lessThan("small")`
+  border-radius: ${props => (props.round ? "4rem" : null)};
+  `};
 `;
 
 const FooterBody: any = styled.nav`
@@ -133,7 +145,17 @@ const LoginBody = styled.div`
   }
 `;
 
+const Hover = styled.div`
+  cursor: pointer;
+`;
+
+const Contain = styled.div`
+  padding: 0.5em;
+`;
+
 export {
+  Contain,
+  Hover,
   Input,
   IssueCard,
   InputBox,

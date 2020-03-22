@@ -1,15 +1,21 @@
 import React from "react";
 
-import { Text } from "../../../styles/global";
+import { Text, Body } from "../../../styles/global";
 import IssueCard from "./issueCard";
+import Wrapper from "../../wrapper";
+import Header from "../../../components/header";
 
 const AllIssues = (): JSX.Element => {
   return (
-    <div>
-      <Text> AllIssues </Text>
+    <Wrapper>
+      <Header />
 
-      <IssueCard id={1} org="" bug="" summary="" />
-    </div>
+      <Body>
+        <Text> AllIssues </Text>
+
+        <IssueCard id={1} org="" bug="" summary="" />
+      </Body>
+    </Wrapper>
   );
 };
 
