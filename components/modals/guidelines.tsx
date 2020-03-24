@@ -11,7 +11,7 @@ const Guidlines = (props): JSX.Element => {
 
   return (
     <Modal
-      show={true}
+      show={showGuideline}
       onHide={() => {
         closeGuidelineModal();
       }}

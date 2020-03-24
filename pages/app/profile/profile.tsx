@@ -1,13 +1,13 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 import Flex from "styled-flex-component";
-import { Nav } from "react-bootstrap";
+import { Nav, Tab, Tabs } from "react-bootstrap";
 
 import Header from "../../../components/header";
 import { Text, Title, Contain, Body } from "../../../styles/global";
 import Wrapper from "../../wrapper";
 
-import Issues from "../issues";
+import Tasks from "../tasks/list";
 import PR from "../pr";
 
 const Profile = (props): JSX.Element => {
@@ -16,29 +16,31 @@ const Profile = (props): JSX.Element => {
       <Header head="Profile" />
 
       <Body>
-        <Flex justifyBetween>
-          <Contain>
-            <Title>Nwani Victory</Title>
-          </Contain>
+        <div style={{ textAlign: "right" }}>
+          <Flex>
+            <img src="" alt="user" style={{ marginRight: "10px" }} />
 
-          <Nav variant="tabs" defaultActiveKey="/home">
-            <Nav.Item>
-              <Nav.Link eventKey="Issues" href="#">
-                Issues
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="Pull Requests" href="#">
-                Pull Requests
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="Comments" href="#">
-                Threads
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Flex>{" "}
+            <Contain>
+              <Title>Nwani Victory</Title>
+            </Contain>
+          </Flex>
+        </div>
+
+        <Tabs
+          style={{ textAlign: "center" }}
+          defaultActiveKey="Issues"
+          id="uncontrolled-tab-exampale"
+        >
+          <Tab eventKey="Issues" title="Issues">
+            <Tasks />
+          </Tab>
+          <Tab eventKey="PR" title="Pull Requests">
+            <PR />
+          </Tab>
+          <Tab eventKey="Threads" title="Threads">
+            <p> Threads </p>
+          </Tab>
+        </Tabs>
       </Body>
     </Wrapper>
   );

@@ -154,7 +154,19 @@ const Contain = styled.div`
   padding: 0.5em;
 `;
 
+const TaskContainer: any = styled.div`
+  padding: 0.3rem;
+  margin: 0.3rem;
+`;
+
+const Notification: any = styled.div`
+  padding: 0.5rem;
+  font-weight: 800px;
+`;
+
 export {
+  Notification,
+  TaskContainer,
   Contain,
   Hover,
   Input,

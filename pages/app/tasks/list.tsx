@@ -1,18 +1,81 @@
-import React from "react";
+import React, { useState } from "react";
+import Flex from "styled-flex-component";
+import { FiMoreVertical, FiX } from "react-icons/fi";
 
-import { Header, Footer } from "../../../components/";
-import { Body, Text } from "../../../styles/global";
+import {
+  Title,
+  Hover,
+  TaskContainer,
+  Body,
+  Text,
+  Notification
+} from "../../../styles/global";
+
+const Data = [
+  {
+    id: 1,
+    title: "Fix Broken Images Source",
+    time: "5 days left"
+  },
+  {
+    id: 2,
+    title: "Fix Circle CI build Failure",
+    time: "3 days left"
+  },
+  {
+    id: 3,
+    title: "Fix Brand Page Responsiveness",
+    time: "1 days left"
+  }
+];
 
 const List = props => {
+  const [Notify, setNotify] = useState<boolean>(false);
   return (
     <div>
-      <Header />
+      {!Notify ? (
+        <Notification>
+          <Flex justifyBetween>
+            <Text small>
+              It is advisable not to work on multiple issues at a once, except
+              long term issues.
+            </Text>
 
+            <Hover
+              onClick={() => {
+                setNotify(true);
+              }}
+            >
+              <FiX style={{ fontSize: "1.7rem" }} />
+            </Hover>
+          </Flex>
+        </Notification>
+      ) : null}
       <Body>
-        <p> List of claimed tasks </p>
-      </Body>
+        <TaskContainer>
+          {Data.map(({ id, title, time }) => {
+            return (
+              <Flex justifyBetween key={id}>
+                <img src="" alt="org" />
 
-      <Footer />
+                <Title unbold small>
+                  <a href="/">{title}</a>
+                </Title>
+
+                <Flex>
+                  <Text unbold small>
+                    {time}
+                  </Text>
+
+                  <Hover style={{ paddingLeft: "10px" }}>
+                    <FiMoreVertical style={{ fontSize: "1.5em" }} />
+                  </Hover>
+                </Flex>
+              </Flex>
+            );
+          })}
+        </TaskContainer>
+      </Body>
     </div>
   );
 };
