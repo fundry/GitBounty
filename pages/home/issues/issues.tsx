@@ -33,7 +33,7 @@ const data = [
 
 const Issues = (props): JSX.Element => {
   const { authenticated } = props.AuthStore;
-  const { openFilterModal } = props.ModalStore;
+  const { openFilterModal, openGuidelineModal } = props.ModalStore;
 
   return (
     <Body blue white>
@@ -67,6 +67,7 @@ const Issues = (props): JSX.Element => {
             org={orgname}
             bug={Bug}
             summary={Summary}
+            openModal={openGuidelineModal}
           />
         );
       })}

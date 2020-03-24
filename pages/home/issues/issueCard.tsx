@@ -23,6 +23,7 @@ interface CustomProps {
   bug: string;
   summary: string;
   auth: boolean;
+  openModal: any;
 }
 
 const IssueCard = ({
@@ -30,7 +31,8 @@ const IssueCard = ({
   org,
   bug,
   summary,
-  auth
+  auth,
+  openModal
 }: CustomProps): JSX.Element => {
   return (
     <IssueItems>
@@ -83,7 +85,7 @@ const IssueCard = ({
 
         {auth ? (
           <Flex justifyCenter>
-            <Button> Claim </Button>{" "}
+            <Button onClick={() => openModal()}> Claim </Button>{" "}
           </Flex>
         ) : null}
       </Card>{" "}

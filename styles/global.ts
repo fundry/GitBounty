@@ -147,6 +147,7 @@ const LoginBody = styled.div`
 
 const Hover = styled.div`
   cursor: pointer;
+  text-align: ${props => (props.right ? "right" : null)};
 `;
 
 const Contain = styled.div`
