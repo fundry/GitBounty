@@ -51,7 +51,7 @@ const HeaderBody: any = styled.nav`
 `;
 
 const Button: any = styled.button`
-  padding: ${props => (props.small ? "0.3rem 1.7rem" : "0.7rem 3rem")};
+  padding: ${props => (props.small ? "0.3rem 1.7rem" : "0.7rem 2.5rem")};
   border: 1px solid #000;
   outline: 0px;
   border-radius: ${props => (props.round ? "5rem" : null)};

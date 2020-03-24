@@ -22,9 +22,16 @@ interface CustomProps {
   org: string;
   bug: string;
   summary: string;
+  auth: boolean;
 }
 
-const IssueCard = ({ id, org, bug, summary }: CustomProps): JSX.Element => {
+const IssueCard = ({
+  id,
+  org,
+  bug,
+  summary,
+  auth
+}: CustomProps): JSX.Element => {
   return (
     <IssueItems>
       <Card id={id}>
@@ -73,9 +80,12 @@ const IssueCard = ({ id, org, bug, summary }: CustomProps): JSX.Element => {
           <DiJavascript style={{ fontSize: "2rem" }} />{" "}
           <DiPostgresql style={{ fontSize: "2rem" }} />
         </div>
-        <Flex justifyCenter>
-          <Button> Claim </Button>{" "}
-        </Flex>
+
+        {auth ? (
+          <Flex justifyCenter>
+            <Button> Claim </Button>{" "}
+          </Flex>
+        ) : null}
       </Card>{" "}
     </IssueItems>
   );

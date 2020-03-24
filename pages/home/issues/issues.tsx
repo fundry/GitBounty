@@ -1,9 +1,19 @@
 import React from "react";
 import Flex from "styled-flex-component";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiFilter } from "react-icons/fi";
 import Link from "next/link";
+import { inject, observer } from "mobx-react";
 
-import { Body, Text, Items, Input, InputBox } from "../../../styles/global";
+import { Filter } from "../../../components/modals/";
+
+import {
+  Body,
+  Text,
+  Hover,
+  Items,
+  Input,
+  InputBox
+} from "../../../styles/global";
 import IssueCard from "./issueCard";
 
 const data = [
@@ -21,12 +31,26 @@ const data = [
   }
 ];
 
-const Issues = (): JSX.Element => {
+const Issues = (props): JSX.Element => {
+  const { authenticated } = props.AuthStore;
+  const { openFilterModal } = props.ModalStore;
+
   return (
     <Body blue white>
+      <Filter />
       <Flex justifyBetween>
-        <Text> 1,400,00 Available Issues </Text>
+        <Flex>
+          <Hover
+            onClick={() => {
+              openFilterModal();
+            }}
+            style={{ margin: "0.1em 0.5em 0.5em" }}
+          >
+            <FiFilter style={{ fontSize: "1.5em" }} />
+          </Hover>
 
+          <Text> 1,400,00 Issues </Text>
+        </Flex>
         <InputBox>
           <Flex>
             <Input borderless placeholder="Search name or type" />
@@ -36,10 +60,18 @@ const Issues = (): JSX.Element => {
       </Flex>
 
       {data.map(({ id, orgname, Bug, Summary }) => {
-        return <IssueCard id={id} org={orgname} bug={Bug} summary={Summary} />;
+        return (
+          <IssueCard
+            auth={authenticated}
+            id={id}
+            org={orgname}
+            bug={Bug}
+            summary={Summary}
+          />
+        );
       })}
     </Body>
   );
 };
 
-export default Issues;
+export default inject("AuthStore", "ModalStore")(observer(Issues));

@@ -26,7 +26,7 @@ class AuthStore {
 
         Axios.get("https://github.com/login/oauth/authorize", {
           params: {
-            client_id: "0db14f58ca77506e9c7e",
+            client_id: ID,
             scope: "repo, user "
           },
           headers: {

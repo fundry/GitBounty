@@ -7,26 +7,17 @@ import { Text, Button, LoginBody } from "../../styles/global";
 import Wrapper from "../wrapper";
 
 const Login = (props): JSX.Element => {
-  // const login = () => {
-  //   try {
-  //     Axios.get('https://github.com/login/oauth/authorize', {
-  //       params: {
-  //         client_id: '0db14f58ca77506e9c7e',
-  //         scope: 'repo, user ',
-  //       },
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   const { AuthUser } = props.AuthStore;
   return (
     <Wrapper>
       <LoginBody>
+        <Flex justifyCenter>
+          <img src="" alt="Github" />
+        </Flex>
+
         <Text center>
-          GitBounty is built heavily upon Github <br /> Users are authenticated
-          using Github Accounts
+          GitBounty is built upon Github <br /> Users are authenticated using
+          their Github Accounts
         </Text>
 
         <Flex justifyCenter>

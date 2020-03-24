@@ -1,6 +1,6 @@
 import React from "react";
 
-const Issues = (props): JSX.Element => {
+const Issues = (): JSX.Element => {
   return (
     <div>
       <p> ISSUES HERE </p>
