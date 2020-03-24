@@ -3,7 +3,7 @@ import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import { inject, observer } from "mobx-react";
 
-import useWindowWidth from "../../styles/hook_style";
+// import useWindowWidth from "../../styles/hook_style";
 import { Footer, Banner } from "../../components";
 import { Body, Text } from "../../styles/global";
 import Wrapper from "../wrapper";
@@ -28,8 +28,7 @@ const T = gql`
 const Home = (props): JSX.Element => {
   const { loading, data, error } = useQuery(T);
 
-  const hook = useWindowWidth;
-  console.log(hook, "hooooks");
+  // const hook = useWindowWidth;
 
   return (
     <div>

@@ -4,18 +4,30 @@ import media from "styled-media-query";
 const Text: any = styled.p`
   font-size: ${props => (props.small ? "1.2rem" : "1.3rem")};
   text-align: ${props => (props.center ? "center" : null)};
+  ${media.lessThan("small")`
+  font-size: ${props => (props.small ? "1.05rem" : "1.2rem")};
+  `};
+  ${media.lessThan("medium")`
+  font-size: ${props => (props.small ? "1.1rem" : "1.25rem")};
+  `};
 `;
 
 const Body: any = styled.div`
   padding: 1rem;
   background: ${props => (props.blue ? "#0e2f5a" : null)};
   color: ${props => (props.white ? "#fff" : null)};
+  ${media.lessThan("small")`
+    padding: 0.5rem;
+  `};
 `;
 
 const Title: any = styled.h4`
   font-size: ${props => (props.small ? "1.5rem " : null)};
   font-weight: ${props => (props.unbold ? "normal" : null)};
   text-align: ${props => (props.center ? "center" : null)};
+  ${media.lessThan("small")`
+   font-size: ${props => (props.small ? "1.3rem " : "1.5rem")};
+  `};
 `;
 
 const BannerBody: any = styled.nav`
@@ -29,6 +41,22 @@ const BannerBody: any = styled.nav`
   a {
     padding-right: 10px;
   }
+  ${media.lessThan("small")`
+  padding : 4rem 2rem 2rem 2rem;
+  h1 {
+    padding-bottom: 20px;
+    font-size: 1.8em;
+    margin: 0.2em;
+  }
+  `};
+  ${media.lessThan("medium")`
+  padding : 4rem 2rem 2rem 2rem;
+  h1 {
+    padding-bottom: 20px;
+    font-size: 2em;
+    margin: 0.2em;
+  }
+  `};
 `;
 
 const HeaderBody: any = styled.nav`
@@ -65,7 +93,9 @@ const Button: any = styled.button`
   border-radius: ${props => (props.round ? "4rem" : null)};
   `};
   ${media.lessThan("small")`
-  border-radius: ${props => (props.round ? "4rem" : null)};
+  border-radius: ${props => (props.round ? "2rem" : null)};
+  padding: ${props => (props.small ? "0.3rem 1.7rem" : "0.5rem 1.7rem")};
+  font-size: 1em;
   `};
 `;
 
@@ -112,22 +142,33 @@ const IssueCard = styled.div`
   background: #fff;
   color: #000;
   border-radius: 0.5rem;
+  ${media.lessThan("medium")`
+  width: 20rem;
+  `};
+  ${media.lessThan("small")`
+  width: 17rem;
+  `};
 `;
 
 const IssueItems = styled.div({
   ...autoGrid(200, 20),
-  padding: "1em",
-  marginLeft: "0.5em"
+  padding: "0.7em",
+  marginLeft: "0.3em"
 });
 
 const Input = styled.input`
   padding: 0.3em 1em;
   border: ${props => (props.borderless ? "0px" : "1px solid #000")};
-  border-radius: 5px;
+  border-radius: ${props => (props.borderless ? null : "5px")};
   width: 30rem;
   outline: 0px;
   color: #0e2f5a;
   font-size: 1.1em;
+  ${media.lessThan("small")`
+  width: 21rem;
+  padding: 0.1rem 0.5rem;
+  font-size: 1rem;
+  `};
 `;
 
 const InputBox = styled.div`
@@ -136,6 +177,9 @@ const InputBox = styled.div`
   border-radius: 5px;
   width: 30rem;
   background: #fff;
+  ${media.lessThan("small")`
+    width: 22rem;
+  `};
 `;
 
 const LoginBody = styled.div`

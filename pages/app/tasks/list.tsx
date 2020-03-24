@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Flex from "styled-flex-component";
 import { FiMoreVertical, FiX } from "react-icons/fi";
+import Link from "next/link";
 
 import {
   Title,
@@ -58,9 +59,13 @@ const List = props => {
               <Flex justifyBetween key={id}>
                 <img src="" alt="org" />
 
-                <Title unbold small>
-                  <a href="/">{title}</a>
-                </Title>
+                <Link href="/app/tasks/[task]" as={`/app/tasks/${id}`}>
+                  <a>
+                    <Title unbold small>
+                      {title}
+                    </Title>{" "}
+                  </a>
+                </Link>
 
                 <Flex>
                   <Text unbold small>

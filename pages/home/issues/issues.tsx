@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Flex from "styled-flex-component";
-import { FiSearch, FiFilter } from "react-icons/fi";
+import { FiSearch, FiFilter, FiX } from "react-icons/fi";
 import Link from "next/link";
 import { inject, observer } from "mobx-react";
 
 import { Filter } from "../../../components/modals/";
-
+// import useWindowWidth from "../../../styles/hook_style";
 import {
   Body,
   Text,
@@ -35,29 +35,86 @@ const Issues = (props): JSX.Element => {
   const { authenticated } = props.AuthStore;
   const { openFilterModal, openGuidelineModal } = props.ModalStore;
 
+  const [Search, setSearch] = useState<boolean>(false);
+
+  const [Width, setWidth] = useState<number>(700);
+
+  // setTimeout(function() {
+  //   setWidth(window.innerWidth);
+  // }, 1000);
+  //
+  // const handleResize = value => {
+  //   setWidth(value);
+  // };
+  //
+  // useEffect(() => {
+  //   window.addEventListener("resize", handleResize.bind(this));
+  //   return () => window.removeEventListener("resize", handleResize.bind(this));
+  // }, []);
+
   return (
     <Body blue white>
       <Filter />
-      <Flex justifyBetween>
-        <Flex>
-          <Hover
-            onClick={() => {
-              openFilterModal();
-            }}
-            style={{ margin: "0.1em 0.5em 0.5em" }}
-          >
-            <FiFilter style={{ fontSize: "1.5em" }} />
-          </Hover>
-
-          <Text> 1,400,00 Issues </Text>
-        </Flex>
-        <InputBox>
+      {Width > 700 ? (
+        <Flex justifyBetween>
           <Flex>
-            <Input borderless placeholder="Search name or type" />
-            <FiSearch style={{ fontSize: "1.7em", color: "#0e2f5a" }} />
+            <Hover
+              onClick={() => {
+                openFilterModal();
+              }}
+              style={{ margin: "0.1em 0.5em 0.5em" }}
+            >
+              <FiFilter style={{ fontSize: "1.5em" }} />
+            </Hover>
+
+            <Text small> 1,400,00 Issues </Text>
           </Flex>
-        </InputBox>
-      </Flex>
+
+          <InputBox>
+            <Flex>
+              <Input borderless placeholder="Search by name or type" />
+              <FiSearch style={{ fontSize: "1.7em", color: "#0e2f5a" }} />
+            </Flex>
+          </InputBox>
+        </Flex>
+      ) : (
+        <Flex justifyBetween>
+          <Flex>
+            <Hover
+              onClick={() => {
+                openFilterModal();
+              }}
+              style={{ margin: "0.1em 0.5em 0.5em" }}
+            >
+              <FiFilter style={{ fontSize: "1.5em" }} />
+            </Hover>
+          </Flex>
+
+          {Search ? (
+            <InputBox>
+              <Flex>
+                <Input borderless placeholder="Search issue" />
+
+                <Hover
+                  onClick={() => {
+                    setSearch(false);
+                  }}
+                >
+                  <FiX style={{ fontSize: "1.5em", color: "#0e2f5a" }} />
+                </Hover>
+              </Flex>
+            </InputBox>
+          ) : (
+            <Hover
+              onClick={() => {
+                setSearch(true);
+              }}
+            >
+              <FiSearch style={{ fontSize: "1.5em", color: "#fff" }} />
+            </Hover>
+          )}
+        </Flex>
+      )}
 
       {data.map(({ id, orgname, Bug, Summary }) => {
         return (
