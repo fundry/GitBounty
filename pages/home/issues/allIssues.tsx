@@ -13,7 +13,14 @@ const AllIssues = (): JSX.Element => {
       <Body>
         <Text> AllIssues </Text>
 
-        <IssueCard id={1} org="" bug="" summary="" />
+        <IssueCard
+          id={1}
+          org="SSSS"
+          bug="SSSS"
+          summary="SSSS"
+          auth={false}
+          openModal={false}
+        />
       </Body>
     </Wrapper>
   );
