@@ -44,7 +44,7 @@ const Title: any = styled.h4`
 `;
 
 const BannerBody: any = styled.nav`
-  padding: 5rem;
+  padding: 3rem;
   background: transparent;
   text-align: center;
   h1 {
@@ -118,14 +118,12 @@ const Button: any = styled.button`
   `};
 `;
 
-const FooterBody: any = styled.nav`
+const FooterBody: any = styled.footer`
   padding: 1rem;
-  display: flex;
-  background: transparent;
-  justify-content: space-between;
+  background: #f2f5ff;
   h5 {
     text-align: center;
-    color: grey;
+    color: #0e2f5a;
     padding-top: 2%;
   }
   a {
@@ -138,7 +136,12 @@ const Column: any = styled.nav`
   display: column;
   background: transparent;
   a {
+    text-decoration: none;
     padding-right: 10px;
+  }
+  h6 {
+    text-align: center;
+    color: #0e2f5a;
   }
 `;
 
@@ -229,7 +232,15 @@ const Notification: any = styled.div`
   color: ${props => (props.issue ? "#fff" : "black")};
 `;
 
+const Bottom = styled.div`
+  padding: 0.1rem 0.5rem;
+  background: #0e2f5a;
+  color: #fff;
+  font-size: 0.9rem;
+`;
+
 export {
+  Bottom,
   Notification,
   TaskContainer,
   Contain,

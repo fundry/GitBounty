@@ -10,6 +10,12 @@ const Banner = (props: any): JSX.Element => {
     <div>
       <Header head={props.head} />
       <BannerBody>
+        <img
+          src="/Github.png"
+          style={{
+            maxWidth: "15%"
+          }}
+        />
         <h1> Github Issues Brought Together </h1>{" "}
         <Button
           onClick={() => {

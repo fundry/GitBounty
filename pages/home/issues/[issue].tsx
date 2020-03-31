@@ -30,7 +30,12 @@ const Issue = props => {
       {Notify ? (
         <Notification issue>
           <Flex justifyBetween>
-            <Text small>
+            <Text
+              small
+              style={{
+                paddingTop: "5px"
+              }}
+            >
               TASK_NAME has been added to your list of tasks here
             </Text>
 
@@ -41,7 +46,7 @@ const Issue = props => {
                 </Button>
               </Link>
 
-              <Hover style={{ paddingRight: "5px", paddingLeft: "10px" }}>
+              <Hover style={{ padding: "0.5rem  1rem" }}>
                 <FiX
                   onClick={() => {
                     setNotify(false);

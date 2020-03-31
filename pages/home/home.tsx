@@ -31,7 +31,11 @@ const Home = (props): JSX.Element => {
   // const hook = useWindowWidth;
 
   return (
-    <div>
+    <div
+      style={{
+        overflow: "hidden"
+      }}
+    >
       <Banner head="Home" />
 
       <Body>
