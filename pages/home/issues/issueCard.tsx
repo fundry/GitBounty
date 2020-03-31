@@ -37,30 +37,26 @@ const IssueCard = ({
   return (
     <IssueItems>
       <Card id={id}>
-        <Flex>
-          <img
-            alt="org"
-            src="../../../assets/images/fb.png"
-            style={{
-              paddingRight: "10px",
-              position: "absolute",
-              bottom: "5ren"
-            }}
-          />
+        <Flex justifyBetween>
+          <Flex>
+            <img
+              alt="org"
+              src="/fb.png"
+              style={{
+                maxWidth: "17%",
+                paddingRight: "10px"
+              }}
+            />
+            <Title small center>
+              {org}
+            </Title>
+          </Flex>
 
-          <div>
-            <Flex jusifyBetween>
-              <Title small center>
-                {org}
-              </Title>
-
-              <DiGithub style={{ fontSize: "2em", color: "grey" }} />
-            </Flex>
-          </div>
+          <DiGithub style={{ fontSize: "2em", color: "grey" }} />
         </Flex>
 
         <Link href="/home/issues/[issue]" as={`/home/issues/${id}`}>
-          <a>
+          <a style={{ textDecoration: "none" }}>
             <Title unbold small center>
               {bug}{" "}
             </Title>{" "}

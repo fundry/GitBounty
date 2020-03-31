@@ -2,9 +2,7 @@ import React from "react";
 import Flex from "styled-flex-component";
 
 import { Items, Text, Title } from "../../styles/global";
-import Feature from "../../assets/svg/feature.svg";
 
-console.log(Feature);
 const data = [
   {
     id: 1,
@@ -41,9 +39,11 @@ const Features = () => {
             <div key={id}>
               <Flex justifyCenter>
                 <img
-                  src="../../assets/svg/feature.svg"
-                  alt="feature"
-                  style={{}}
+                  src="/feature.svg"
+                  alt="feature illustration"
+                  style={{
+                    maxWidth: "45%"
+                  }}
                 />
               </Flex>
 
