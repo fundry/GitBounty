@@ -18,7 +18,7 @@ const Footer = (props): JSX.Element => {
       {hooks > 700 ? (
         <Body>
           <Flex>
-            <div style={{ paddingTop: "20px" }}>
+            <div style={{ paddingTop: "20pxi" }}>
               <h5> GitBounty </h5>
             </div>
 

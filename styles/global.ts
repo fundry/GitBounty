@@ -86,19 +86,22 @@ const HeaderBody: any = styled.nav`
     }
   }
   a {
-    font-size: 1.1em;
+    color: #0e2f5a;
+    font-size: 1.05em;
     padding-right: 10px;
+    padding-left: 5px;
+    text-decoration: none;
   }
 `;
 
 const Button: any = styled.button`
-  padding: ${props => (props.small ? "0.3rem 1.7rem" : "0.7rem 2.5rem")};
-  border: 1px solid #000;
+  padding: ${props => (props.small ? "0.1rem 1.7rem" : "0.7rem 2.5rem")};
+  border: ${props => (props.white ? "1px solid #fff" : "1px solid #000")};
   outline: 0px;
   border-radius: ${props => (props.round ? "5rem" : null)};
   background: transparent;
-  color: #000;
-  font-size: 1.2em;
+  color: ${props => (props.white ? " #fff" : "#000")};
+  font-size: ${props => (props.small ? "1rem" : "1.2rem")};
   display: ${props => (props.flex ? "flex" : null)} ${media.lessThan("medium")`
   border-radius: ${props => (props.round ? "4rem" : null)};
   `};
@@ -217,8 +220,10 @@ const TaskContainer: any = styled.div`
 `;
 
 const Notification: any = styled.div`
-  padding: 0.5rem;
+  padding: 0.5rem 2rem;
   font-weight: 800px;
+  background: ${props => (props.issue ? "#0e2f5a" : "transparent")};
+  color: ${props => (props.issue ? "#fff" : "black")};
 `;
 
 export {

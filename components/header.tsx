@@ -16,9 +16,16 @@ const Header = (props): JSX.Element => {
         <title> GitBounty | {props.head} </title>
       </Head>
 
-      <Link href="/" as="/">
-        <h4> GitBounty </h4>
-      </Link>
+      <Flex>
+        <Link href="/" as="/">
+          <h4> GitBounty </h4>
+        </Link>
+        <h4>
+          <a href="" style={{ textDecoration: "none" }}>
+            {props.org}{" "}
+          </a>
+        </h4>
+      </Flex>
 
       <Flex>
         <a href="/"> Organziations </a>
