@@ -20,16 +20,16 @@ const Body: any = styled.div`
   background: ${props => (props.blue ? "#0e2f5a" : null)};
   color: ${props => (props.white ? "#fff" : null)};
   ${media.lessThan("large")`
-  padding-left: 3em;
-  padding-right: 3em;
+  padding-left: ${props => (props.pad ? "3em" : "1rem")};
+  padding-right: ${props => (props.pad ? "3em" : "1rem")};
   `};
   ${media.lessThan("medium")`
-  padding-left: 1.5em;
-  padding-right: 1.5em;
+   padding-left: ${props => (props.pad ? "1.5em" : "1rem")};
+  padding-right: ${props => (props.pad ? "1.5em" : "1rem")};
   `};
   ${media.lessThan("small")`
-  padding-left: 0.4em;
-  padding-right: 0.4em;
+   padding-left: ${props => (props.pad ? "0.4em" : "0.2rem")};
+  padding-right: ${props => (props.pad ? "0.4em" : "0.2rem")};
   `};
 `;
 
@@ -73,7 +73,7 @@ const BannerBody: any = styled.nav`
 `;
 
 const HeaderBody: any = styled.nav`
-  padding: 1rem;
+  padding: 0.7rem 1rem;
   display: flex;
   background: transparent;
   box-shadow: 0px 3px 4px grey;

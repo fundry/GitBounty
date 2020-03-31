@@ -22,37 +22,43 @@ const Header = (props): JSX.Element => {
         </Link>
         <h5>
           <a href="" style={{ textDecoration: "none" }}>
-            {props.org}{" "}
+            {props.org}
           </a>
         </h5>
       </Flex>
 
       <Flex>
-        <a href="/"> Organziations </a>
-        <a href="/home/issues/allIssues"> Issues </a>
-        {authenticated ? (
-          <div
-            onClick={() => {
-              Router.push({
-                pathname: "/app/profile/profile"
-              });
-            }}
-          >
-            <p> IMAGE </p>
-          </div>
-        ) : (
-          <Button
-            onClick={() => {
-              Router.push({
-                pathname: "/auth/login"
-              });
-            }}
-            round
-            small
-          >
-            Login
-          </Button>
-        )}
+        <li style={{ display: "flex", flexDirection: "row" }}>
+          <a href="/" style={{ textDecoration: "none" }}>
+            Organziations
+          </a>
+          <a href="/home/issues/allIssues" style={{ textDecoration: "none" }}>
+            Issues
+          </a>
+          {authenticated ? (
+            <div
+              onClick={() => {
+                Router.push({
+                  pathname: "/app/profile/profile"
+                });
+              }}
+            >
+              <img src="/sample.png" style={{ height: "5vh" }} alt="User" />
+            </div>
+          ) : (
+            <Button
+              onClick={() => {
+                Router.push({
+                  pathname: "/auth/login"
+                });
+              }}
+              round
+              small
+            >
+              Login
+            </Button>
+          )}
+        </li>
       </Flex>
     </HeaderBody>
   );

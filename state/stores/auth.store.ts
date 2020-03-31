@@ -9,7 +9,7 @@ const width = 600;
 const height = 600;
 
 class AuthStore {
-  authenticated = false;
+  authenticated = true;
 
   AuthUser = () => {
     if (process.browser) {

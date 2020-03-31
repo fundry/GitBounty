@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import { IoLogoGithub } from "react-icons/io";
-import { FiX, FiArrowRight } from "react-icons/fi";
+import { FiX } from "react-icons/fi";
 import Flex from "styled-flex-component";
 import { observer, inject } from "mobx-react";
+import Router from "next/router";
 
 import Wrapper from "../../wrapper";
 import Header from "../../../components/header";
@@ -21,7 +21,7 @@ const Issue = props => {
   const { openGuidelineModal, showGuideline } = props.ModalStore;
   console.log(showGuideline, "val");
   const [Wait, setWait] = useState(false);
-  const [Notify, setNotify] = useState(true);
+  const [Notify, setNotify] = useState(false);
 
   return (
     <Wrapper>
@@ -40,11 +40,17 @@ const Issue = props => {
             </Text>
 
             <Flex>
-              <Link href="/" as="/">
-                <Button white small>
-                  Open Task
-                </Button>
-              </Link>
+              <Button
+                onClick={() => {
+                  Router.push({
+                    pathname: "/app/profile/profile"
+                  });
+                }}
+                white
+                small
+              >
+                Open Task
+              </Button>
 
               <Hover style={{ padding: "0.5rem  1rem" }}>
                 <FiX
@@ -74,7 +80,7 @@ const Issue = props => {
         </Flex>
 
         <h5 style={{ paddingTop: "5px", fontWeight: "normal" }}>
-          <b> Duration </b> : 5 days{" "}
+          <b> Duration </b> : 5 days
         </h5>
 
         <Text>
@@ -82,7 +88,7 @@ const Issue = props => {
           broken are broken are broken are broken are broken are broken are
           broken are broken are broken are broken are broken are broken are
           broken are broken are broken are broken are broken are broken are
-          broken are broken are broken are broken are broken are broken{" "}
+          broken are broken are broken are broken are broken are broken
         </Text>
 
         <hr />
@@ -98,12 +104,12 @@ const Issue = props => {
               alt="maintainer"
               src="/sample.png"
               style={{ maxWidth: "7%", margin: "0.5rem" }}
-            />{" "}
+            />
             <img
               alt="maintainer"
               src="/sample.png"
               style={{ maxWidth: "7%", margin: "0.5rem" }}
-            />{" "}
+            />
             <img
               alt="maintainer"
               src="/sample.png"
@@ -123,7 +129,7 @@ const Issue = props => {
                 setNotify(true);
               }}
             >
-              Claim task{" "}
+              Claim task
             </Button>
           ) : (
             <Text small>Awaiting approval</Text>

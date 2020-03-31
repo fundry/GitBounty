@@ -18,14 +18,18 @@ const Profile = (props): JSX.Element => {
       <Body>
         <div style={{ textAlign: "right" }}>
           <Flex>
-            <img src="" alt="user" style={{ marginRight: "10px" }} />
+            <img
+              src="/sample.png"
+              alt="user"
+              style={{ marginRight: "10px", maxWidth: "8%" }}
+            />
 
             <Contain>
               <Title>Nwani Victory</Title>
             </Contain>
           </Flex>
         </div>
-
+        <br />
         <Tabs
           style={{ textAlign: "center" }}
           defaultActiveKey="Issues"

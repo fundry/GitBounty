@@ -31,7 +31,7 @@ const Data = [
 ];
 
 const List = props => {
-  const [Notify, setNotify] = useState<boolean>(false);
+  const [Notify, setNotify] = useState(false);
   return (
     <div>
       {!Notify ? (
@@ -56,27 +56,30 @@ const List = props => {
         <TaskContainer>
           {Data.map(({ id, title, time }) => {
             return (
-              <Flex justifyBetween key={id}>
-                <img src="" alt="org" />
+              <div>
+                <Flex justifyBetween key={id}>
+                  <img src="/fb.png" alt="org" style={{ maxWidth: "6%" }} />
 
-                <Link href="/app/tasks/[task]" as={`/app/tasks/${id}`}>
-                  <a>
-                    <Title unbold small>
-                      {title}
-                    </Title>{" "}
-                  </a>
-                </Link>
+                  <Link href="/app/tasks/[task]" as={`/app/tasks/${id}`}>
+                    <a style={{ textDecoration: "none" }}>
+                      <Title unbold small>
+                        {title}
+                      </Title>
+                    </a>
+                  </Link>
 
-                <Flex>
-                  <Text unbold small>
-                    {time}
-                  </Text>
+                  <Flex>
+                    <Text unbold small>
+                      {time}
+                    </Text>
 
-                  <Hover style={{ paddingLeft: "10px" }}>
-                    <FiMoreVertical style={{ fontSize: "1.5em" }} />
-                  </Hover>
+                    <Hover style={{ paddingLeft: "10px" }}>
+                      <FiMoreVertical style={{ fontSize: "1.5em" }} />
+                    </Hover>
+                  </Flex>
                 </Flex>
-              </Flex>
+                <br />
+              </div>
             );
           })}
         </TaskContainer>
