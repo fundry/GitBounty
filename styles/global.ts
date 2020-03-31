@@ -14,10 +14,22 @@ const Text: any = styled.p`
 
 const Body: any = styled.div`
   padding: 1rem;
+  width: 100%;
+  padding-left: ${props => (props.banner ? "12em" : "8em")};
+  padding-right: ${props => (props.banner ? "12em" : "8em")};
   background: ${props => (props.blue ? "#0e2f5a" : null)};
   color: ${props => (props.white ? "#fff" : null)};
+  ${media.lessThan("large")`
+  padding-left: 3em;
+  padding-right: 3em;
+  `};
+  ${media.lessThan("medium")`
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  `};
   ${media.lessThan("small")`
-    padding: 0.5rem;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
   `};
 `;
 
@@ -27,7 +39,8 @@ const Title: any = styled.h4`
   text-align: ${props => (props.center ? "center" : null)};
   ${media.lessThan("small")`
    font-size: ${props => (props.small ? "1.3rem " : "1.5rem")};
-  `};
+    font-weight: normal;
+   `};
 `;
 
 const BannerBody: any = styled.nav`
@@ -131,7 +144,7 @@ const autoGrid = (minColumnWidth = 250, gridGap = 0) => ({
 
 const Items = styled.div({
   ...autoGrid(200, 20),
-  padding: "1em",
+  padding: "0.5em",
   marginLeft: "0.5em"
 });
 
@@ -151,7 +164,7 @@ const IssueCard = styled.div`
 `;
 
 const IssueItems = styled.div({
-  ...autoGrid(200, 20),
+  ...autoGrid(270, 50),
   padding: "0.7em",
   marginLeft: "0.3em"
 });

@@ -12,6 +12,7 @@ import {
   Hover,
   Items,
   Input,
+  IssueItems,
   InputBox
 } from "../../../styles/global";
 import IssueCard from "./issueCard";
@@ -28,6 +29,18 @@ const data = [
     orgname: "Fundry",
     Bug: "Fix Broken Image Link",
     Summary: "Broken links are vey easy tomfind. We hae aolot of them witi pur "
+  },
+  {
+    id: 3,
+    orgname: "Fundry",
+    Bug: "Fix Broken Image Link",
+    Summary: "Broken links are vey easy tomfind. We hae aolot of them witi pur "
+  },
+  {
+    id: 4,
+    orgname: "Fundry",
+    Bug: "Fix Broken Image Link",
+    Summary: "Broken links are vey easy tomfind. We hae aolot of them witi pur "
   }
 ];
 
@@ -35,9 +48,9 @@ const Issues = (props): JSX.Element => {
   const { authenticated } = props.AuthStore;
   const { openFilterModal, openGuidelineModal } = props.ModalStore;
 
-  const [Search, setSearch] = useState<boolean>(false);
+  const [Search, setSearch] = useState(false);
 
-  const [Width, setWidth] = useState<number>(700);
+  const [Width, setWidth] = useState(700);
 
   // setTimeout(function() {
   //   setWidth(window.innerWidth);
@@ -116,18 +129,20 @@ const Issues = (props): JSX.Element => {
         </Flex>
       )}
 
-      {data.map(({ id, orgname, Bug, Summary }) => {
-        return (
-          <IssueCard
-            auth={authenticated}
-            id={id}
-            org={orgname}
-            bug={Bug}
-            summary={Summary}
-            openModal={openGuidelineModal}
-          />
-        );
-      })}
+      <IssueItems>
+        {data.map(({ id, orgname, Bug, Summary }) => {
+          return (
+            <IssueCard
+              auth={authenticated}
+              id={id}
+              org={orgname}
+              bug={Bug}
+              summary={Summary}
+              openModal={openGuidelineModal}
+            />
+          );
+        })}
+      </IssueItems>
     </Body>
   );
 };

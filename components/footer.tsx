@@ -4,27 +4,56 @@ import {} from "react-icons/di";
 import { FiTwitter, FiGithub, FiMail } from "react-icons/fi";
 
 import { Body, FooterBody, Hover, Column } from "../styles/global";
-// import useWindowWidth from "../styles/hook_style";
+import useWindowWidth from "../styles/hook_style";
 
 const Footer = (props): JSX.Element => {
-  // const hooks = useWindowWidth();
+  const hooks = useWindowWidth();
 
   const [Width, setWidth] = useState(500);
 
+  console.log(hooks);
+
   return (
     <FooterBody>
-      {Width > 700 ? (
+      {hooks > 700 ? (
         <Body>
-          <h5> GitBounty </h5>{" "}
-          <Column>
-            <h6> PRODUCT </h6> <a> Resources </a>
-          </Column>
-          <Column>
-            <h6> LEGAL </h6> <a> Resources </a>
-          </Column>
-          <Column>
-            <h6> SERVICE </h6> <a> Resources </a>
-          </Column>
+          <Flex>
+            <div style={{ paddingTop: "20px" }}>
+              <h5> GitBounty </h5>
+            </div>
+
+            <Flex justifyBetween>
+              <Column>
+                <h6> PRODUCT </h6>
+
+                <Flex column>
+                  <a> Resources </a>
+                  <a> Resources </a>
+                  <a> Resources </a>
+                </Flex>
+              </Column>
+
+              <Column>
+                <h6> PRODUCT </h6>
+
+                <Flex column>
+                  <a> Resources </a>
+                  <a> Resources </a>
+                  <a> Resources </a>
+                </Flex>
+              </Column>
+
+              <Column>
+                <h6> PRODUCT </h6>
+
+                <Flex column>
+                  <a> Resources </a>
+                  <a> Resources </a>
+                  <a> Resources </a>
+                </Flex>
+              </Column>
+            </Flex>
+          </Flex>
         </Body>
       ) : (
         <Body>

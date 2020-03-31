@@ -32,30 +32,30 @@ const data = [
 
 const Features = () => {
   return (
-    <div>
-      <Items>
-        {data.map(({ id, title, summary }) => {
-          return (
-            <div key={id}>
-              <Flex justifyCenter>
-                <img
-                  src="/feature.svg"
-                  alt="feature illustration"
-                  style={{
-                    maxWidth: "45%"
-                  }}
-                />
-              </Flex>
+    <Items>
+      {data.map(({ id, title, summary }) => {
+        return (
+          <div key={id}>
+            <Flex justifyCenter>
+              <img
+                src="/feature.svg"
+                alt="feature illustration"
+                style={{
+                  maxWidth: "45%"
+                }}
+              />
+            </Flex>
 
-              <Title center> {title} </Title>
-              <Text center small>
-                {summary}{" "}
-              </Text>
-            </div>
-          );
-        })}
-      </Items>
-    </div>
+            <Title center small>
+              {title}{" "}
+            </Title>
+            <Text center small>
+              {summary}
+            </Text>
+          </div>
+        );
+      })}
+    </Items>
   );
 };
 

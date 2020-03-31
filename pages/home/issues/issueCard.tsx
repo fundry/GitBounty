@@ -35,57 +35,55 @@ const IssueCard = ({
   openModal
 }: CustomProps): JSX.Element => {
   return (
-    <IssueItems>
-      <Card id={id}>
-        <Flex justifyBetween>
-          <Flex>
-            <img
-              alt="org"
-              src="/fb.png"
-              style={{
-                maxWidth: "17%",
-                paddingRight: "10px"
-              }}
-            />
-            <Title small center>
-              {org}
-            </Title>
-          </Flex>
-
-          <DiGithub style={{ fontSize: "2em", color: "grey" }} />
+    <Card id={id}>
+      <Flex justifyBetween>
+        <Flex>
+          <img
+            alt="org"
+            src="/fb.png"
+            style={{
+              maxWidth: "17%",
+              paddingRight: "10px"
+            }}
+          />
+          <Title small center>
+            {org}
+          </Title>
         </Flex>
 
-        <Link href="/home/issues/[issue]" as={`/home/issues/${id}`}>
-          <a style={{ textDecoration: "none" }}>
-            <Title unbold small center>
-              {bug}{" "}
-            </Title>{" "}
-          </a>
-        </Link>
+        <DiGithub style={{ fontSize: "2em", color: "grey" }} />
+      </Flex>
 
-        <Text small>{summary}</Text>
-        <hr />
-        <Flex justifyBetween>
-          <p> EASY </p>
+      <Link href="/home/issues/[issue]" as={`/home/issues/${id}`}>
+        <a style={{ textDecoration: "none" }}>
+          <Title unbold small center>
+            {bug}{" "}
+          </Title>{" "}
+        </a>
+      </Link>
 
-          <Flex>
-            <FiClock style={{ fontSize: "1.3em" }} />
-            <p style={{ marginLeft: "7px" }}> 5 days </p>
-          </Flex>
+      <Text small>{summary}</Text>
+      <hr />
+      <Flex justifyBetween>
+        <p> EASY </p>
+
+        <Flex>
+          <FiClock style={{ fontSize: "1.3em" }} />
+          <p style={{ marginLeft: "7px" }}> 5 days </p>
         </Flex>
-        <div>
-          <DiAngularSimple style={{ fontSize: "2rem" }} />{" "}
-          <DiJavascript style={{ fontSize: "2rem" }} />{" "}
-          <DiPostgresql style={{ fontSize: "2rem" }} />
-        </div>
+      </Flex>
+      <div>
+        <DiAngularSimple style={{ fontSize: "2rem" }} />{" "}
+        <DiJavascript style={{ fontSize: "2rem" }} />{" "}
+        <DiPostgresql style={{ fontSize: "2rem" }} />
+      </div>
 
-        {auth ? (
-          <Flex justifyCenter>
-            <Button onClick={() => openModal()}> Claim </Button>{" "}
-          </Flex>
-        ) : null}
-      </Card>{" "}
-    </IssueItems>
+      {auth ? (
+        <Flex justifyCenter>
+          <Button onClick={() => openModal()}> Claim </Button>{" "}
+        </Flex>
+      ) : null}
+    </Card>
   );
 };
 
