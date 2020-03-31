@@ -85,6 +85,9 @@ const HeaderBody: any = styled.nav`
       cursor: pointer;
     }
   }
+  h5 {
+    padding-top: 3px;
+  }
   a {
     color: #0e2f5a;
     font-size: 1.05em;
@@ -103,7 +106,7 @@ const Button: any = styled.button`
   color: ${props => (props.white ? " #fff" : "#000")};
   font-size: ${props => (props.small ? "1rem" : "1.2rem")};
   display: ${props => (props.flex ? "flex" : null)} ${media.lessThan("medium")`
-  border-radius: ${props => (props.round ? "4rem" : null)};
+  border-radius: ${props => (props.round ? "3rem" : null)};
   `};
   ${media.lessThan("large")`
   border-radius: ${props => (props.round ? "4rem" : null)};

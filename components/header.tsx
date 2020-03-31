@@ -20,11 +20,11 @@ const Header = (props): JSX.Element => {
         <Link href="/" as="/">
           <h4> GitBounty </h4>
         </Link>
-        <h4>
+        <h5>
           <a href="" style={{ textDecoration: "none" }}>
             {props.org}{" "}
           </a>
-        </h4>
+        </h5>
       </Flex>
 
       <Flex>

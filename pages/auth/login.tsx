@@ -12,12 +12,12 @@ const Login = (props): JSX.Element => {
     <Wrapper>
       <LoginBody>
         <Flex justifyCenter>
-          <img src="" alt="Github" />
+          <img src="/Github.png" alt="Github" style={{ maxWidth: "15%" }} />
         </Flex>
 
         <Text center>
-          GitBounty is built upon Github <br /> Users are authenticated using
-          their Github Accounts
+          GitBounty is built upon Github's API <br /> Users are authenticated
+          using their Github Accounts
         </Text>
 
         <Flex justifyCenter>
@@ -37,7 +37,11 @@ const Login = (props): JSX.Element => {
               <Text style={{ paddingRight: "15px", color: "grey" }} small>
                 Don't have a Github Account
               </Text>
-              <a id="link" href="https://github.com">
+              <a
+                id="link"
+                href="https://github.com"
+                style={{ fontSize: "1.1rem", textDecoration: "none" }}
+              >
                 Create One{" "}
               </a>
             </Flex>

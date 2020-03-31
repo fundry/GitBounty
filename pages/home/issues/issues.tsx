@@ -5,7 +5,7 @@ import Link from "next/link";
 import { inject, observer } from "mobx-react";
 
 import { Filter } from "../../../components/modals/";
-// import useWindowWidth from "../../../styles/hook_style";
+import useWindowWidth from "../../../styles/hook_style";
 import {
   Body,
   Text,
@@ -50,25 +50,11 @@ const Issues = (props): JSX.Element => {
 
   const [Search, setSearch] = useState(false);
 
-  const [Width, setWidth] = useState(700);
-
-  // setTimeout(function() {
-  //   setWidth(window.innerWidth);
-  // }, 1000);
-  //
-  // const handleResize = value => {
-  //   setWidth(value);
-  // };
-  //
-  // useEffect(() => {
-  //   window.addEventListener("resize", handleResize.bind(this));
-  //   return () => window.removeEventListener("resize", handleResize.bind(this));
-  // }, []);
-
+  const hooks = useWindowWidth();
   return (
     <Body blue white>
       <Filter />
-      {Width > 700 ? (
+      {hooks > 700 ? (
         <Flex justifyBetween>
           <Flex>
             <Hover
