@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import media from "styled-media-query";
+import { FiFilter } from "react-icons/fi";
 
 const Text: any = styled.p`
   font-size: ${props => (props.small ? "1.2rem" : "1.3rem")};
@@ -241,10 +242,64 @@ const Bottom = styled.div`
   font-size: 0.9rem;
 `;
 
+const FilterIcon = styled(FiFilter)`
+  font-size: 1.6em;
+  color: #fff;
+  &: hover {
+    color: #100e17;
+  }
+`;
+
+const FilterContain = styled.div`
+  margin: 0.1em 0.5em 0.5em;
+  div {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    transition: all 1s ease;
+    margin-left: 1.5rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    left: 0;
+    display: none;
+    background: #100e17;
+    border-radius: 10px;
+    p {
+      color: #fff;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      li {
+        padding: 1rem 0.2rem;
+        clear: both;
+        width: 100%;
+        transition-duration: 1s;
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  &: hover {
+    cursor: pointer;
+    div {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+      clear: both;
+      width: 20rem;
+    }
+  }
+`;
+
 export {
+  FilterContain,
   Bottom,
   Notification,
   TaskContainer,
+  FilterIcon,
   Contain,
   Hover,
   Input,

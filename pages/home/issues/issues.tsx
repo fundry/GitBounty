@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Flex from "styled-flex-component";
-import { FiSearch, FiFilter, FiX } from "react-icons/fi";
+import { FiSearch, FiX } from "react-icons/fi";
 import { inject, observer } from "mobx-react";
 
 import { Filter } from "../../../components/modals/";
@@ -11,7 +11,9 @@ import {
   Hover,
   Input,
   IssueItems,
-  InputBox
+  InputBox,
+  FilterContain,
+  FilterIcon
 } from "../../../styles/global";
 import IssueCard from "./issueCard";
 
@@ -56,20 +58,34 @@ const Issues = (props): JSX.Element => {
         <Flex justifyBetween>
           {hooks > 700 ? (
             <Flex>
-              <Hover
-                onClick={() => {
-                  openFilterModal();
-                }}
-                style={{ margin: "0.1em 0.5em 0.5em" }}
-              >
-                <FiFilter style={{ fontSize: "1.5em" }} />
-              </Hover>
+              <FilterContain>
+                <FilterIcon />
+                <div aria-label="submenu">
+                  <p> Filter by </p>
+                  <ul>
+                    <li>
+                      <a href="#">Sub-1</a>
+                    </li>
+                    <li>
+                      <a href="#">Sub-2</a>
+                    </li>
+                    <li>
+                      <a href="#">Sub-3</a>
+                    </li>
+                  </ul>
+                </div>
+              </FilterContain>
 
               <Text small> 1,400,00 Issues </Text>
             </Flex>
           ) : (
-            <Hover style={{ margin: "0.1em 0.5em 0.5em" }}>
-              <FiFilter style={{ fontSize: "1.5em" }} />
+            <Hover
+              onClick={() => {
+                openFilterModal();
+              }}
+              style={{ margin: "0.1em 0.5em 0.5em" }}
+            >
+              <FilterIcon />
             </Hover>
           )}
 
@@ -89,7 +105,7 @@ const Issues = (props): JSX.Element => {
               }}
               style={{ margin: "0.1em 0.5em 0.5em" }}
             >
-              <FiFilter style={{ fontSize: "1.5em" }} />
+              <FilterIcon />
             </Hover>
           </Flex>
 

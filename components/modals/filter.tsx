@@ -10,7 +10,7 @@ const Filter = (props): JSX.Element => {
 
   return (
     <Modal
-      show={filterModal}
+      show={filterModal || false}
       onHide={() => {
         closeFilterModal();
       }}
