@@ -2,6 +2,7 @@ import React from "react";
 import Flex from "styled-flex-component";
 
 import { Items, Text, Title } from "../../styles/global";
+import useWindowWidth from "../../styles/hook_style";
 
 const data = [
   {
@@ -31,31 +32,62 @@ const data = [
 ];
 
 const Features = () => {
-  return (
-    <Items>
-      {data.map(({ id, title, summary }) => {
-        return (
-          <div key={id}>
-            <Flex justifyCenter>
-              <img
-                src="/feature.svg"
-                alt="feature illustration"
-                style={{
-                  maxWidth: "45%"
-                }}
-              />
-            </Flex>
+  const hooks = useWindowWidth();
 
-            <Title center small>
-              {title}{" "}
-            </Title>
-            <Text center small>
-              {summary}
-            </Text>
-          </div>
-        );
-      })}
-    </Items>
+  return (
+    <div>
+      {hooks > 900 ? (
+        <Flex justifyBetween>
+          {data.map(({ id, title, summary }) => {
+            return (
+              <div key={id}>
+                <Flex justifyCenter>
+                  <img
+                    src="/feature.svg"
+                    alt="feature illustration"
+                    style={{
+                      maxWidth: "45%"
+                    }}
+                  />
+                </Flex>
+
+                <Title center small>
+                  {title}{" "}
+                </Title>
+                <Text center small>
+                  {summary}
+                </Text>
+              </div>
+            );
+          })}
+        </Flex>
+      ) : (
+        <Items>
+          {data.map(({ id, title, summary }) => {
+            return (
+              <div key={id}>
+                <Flex justifyCenter>
+                  <img
+                    src="/feature.svg"
+                    alt="feature illustration"
+                    style={{
+                      maxWidth: "45%"
+                    }}
+                  />
+                </Flex>
+
+                <Title center small>
+                  {title}{" "}
+                </Title>
+                <Text center small>
+                  {summary}
+                </Text>
+              </div>
+            );
+          })}
+        </Items>
+      )}
+    </div>
   );
 };
 

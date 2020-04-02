@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Flex from "styled-flex-component";
 import { FiSearch, FiFilter, FiX } from "react-icons/fi";
-import Link from "next/link";
 import { inject, observer } from "mobx-react";
 
 import { Filter } from "../../../components/modals/";
@@ -10,7 +9,6 @@ import {
   Body,
   Text,
   Hover,
-  Items,
   Input,
   IssueItems,
   InputBox
@@ -54,20 +52,26 @@ const Issues = (props): JSX.Element => {
   return (
     <Body blue white>
       <Filter />
-      {hooks > 700 ? (
+      {hooks > 600 ? (
         <Flex justifyBetween>
-          <Flex>
-            <Hover
-              onClick={() => {
-                openFilterModal();
-              }}
-              style={{ margin: "0.1em 0.5em 0.5em" }}
-            >
+          {hooks > 700 ? (
+            <Flex>
+              <Hover
+                onClick={() => {
+                  openFilterModal();
+                }}
+                style={{ margin: "0.1em 0.5em 0.5em" }}
+              >
+                <FiFilter style={{ fontSize: "1.5em" }} />
+              </Hover>
+
+              <Text small> 1,400,00 Issues </Text>
+            </Flex>
+          ) : (
+            <Hover style={{ margin: "0.1em 0.5em 0.5em" }}>
               <FiFilter style={{ fontSize: "1.5em" }} />
             </Hover>
-
-            <Text small> 1,400,00 Issues </Text>
-          </Flex>
+          )}
 
           <InputBox>
             <Flex>
@@ -115,20 +119,43 @@ const Issues = (props): JSX.Element => {
         </Flex>
       )}
 
-      <IssueItems>
-        {data.map(({ id, orgname, Bug, Summary }) => {
-          return (
-            <IssueCard
-              auth={authenticated}
-              id={id}
-              org={orgname}
-              bug={Bug}
-              summary={Summary}
-              openModal={openGuidelineModal}
-            />
-          );
-        })}
-      </IssueItems>
+      <br />
+      {hooks > 600 ? (
+        <IssueItems>
+          {data.map(({ id, orgname, Bug, Summary }) => {
+            return (
+              <IssueCard
+                auth={authenticated}
+                id={id}
+                org={orgname}
+                bug={Bug}
+                summary={Summary}
+                openModal={openGuidelineModal}
+              />
+            );
+          })}
+        </IssueItems>
+      ) : (
+        <Flex justifyCenter>
+          <div>
+            {data.map(({ id, orgname, Bug, Summary }) => {
+              return (
+                <div>
+                  <IssueCard
+                    auth={authenticated}
+                    id={id}
+                    org={orgname}
+                    bug={Bug}
+                    summary={Summary}
+                    openModal={openGuidelineModal}
+                  />
+                  <br />
+                </div>
+              );
+            })}
+          </div>
+        </Flex>
+      )}
     </Body>
   );
 };

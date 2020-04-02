@@ -145,15 +145,23 @@ const Column: any = styled.nav`
   }
 `;
 
-const autoGrid = (minColumnWidth = 250, gridGap = 0) => ({
+const autoGrid = (minColumnWidth = 300, gridGap = 0) => ({
   display: "grid",
   gridTemplateColumns: `repeat(auto-fill, minmax(${minColumnWidth}px, 3fr))`,
   gridGap
 });
 
+const IssueItems = styled.div({
+  ...autoGrid(290, 30),
+  padding: "0.7em",
+  marginLeft: "0.3em",
+  margin: "0.5em"
+});
+
 const Items = styled.div({
-  ...autoGrid(200, 20),
+  ...autoGrid(170, 40),
   padding: "0.5em",
+  margin: "0.5rem",
   marginLeft: "0.5em"
 });
 
@@ -171,12 +179,6 @@ const IssueCard = styled.div`
   width: 17rem;
   `};
 `;
-
-const IssueItems = styled.div({
-  ...autoGrid(270, 50),
-  padding: "0.7em",
-  marginLeft: "0.3em"
-});
 
 const Input = styled.input`
   padding: 0.3em 1em;
