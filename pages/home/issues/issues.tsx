@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Flex from "styled-flex-component";
 import { FiSearch, FiX } from "react-icons/fi";
 import { inject, observer } from "mobx-react";
+import styled from "styled-components";
 
 import { Filter } from "../../../components/modals/";
 import useWindowWidth from "../../../styles/hook_style";
@@ -13,7 +14,8 @@ import {
   IssueItems,
   InputBox,
   FilterContain,
-  FilterIcon
+  FilterIcon,
+  Title
 } from "../../../styles/global";
 import IssueCard from "./issueCard";
 
@@ -44,6 +46,22 @@ const data = [
   }
 ];
 
+const IssueBody = styled.div`
+  padding: 0.2rem 0.5rem;
+`;
+
+const Issue = props => {
+  return (
+    <IssueBody>
+      <Flex justifyBetween>
+        <Text> {props.org} </Text>
+        <Title small> {props.bug} </Title>
+        <Text>12-12-12 </Text>
+      </Flex>
+    </IssueBody>
+  );
+};
+
 const Issues = (props): JSX.Element => {
   const { authenticated } = props.AuthStore;
   const { openFilterModal, openGuidelineModal } = props.ModalStore;
@@ -54,7 +72,7 @@ const Issues = (props): JSX.Element => {
   return (
     <Body blue white>
       <Filter />
-      {hooks > 600 ? (
+      {hooks > 800 ? (
         <Flex justifyBetween>
           {hooks > 700 ? (
             <Flex>
@@ -136,7 +154,7 @@ const Issues = (props): JSX.Element => {
       )}
 
       <br />
-      {hooks > 600 ? (
+      {hooks > 1000 ? (
         <IssueItems>
           {data.map(({ id, orgname, Bug, Summary }) => {
             return (
@@ -152,25 +170,23 @@ const Issues = (props): JSX.Element => {
           })}
         </IssueItems>
       ) : (
-        <Flex justifyCenter>
-          <div>
-            {data.map(({ id, orgname, Bug, Summary }) => {
-              return (
-                <div>
-                  <IssueCard
-                    auth={authenticated}
-                    id={id}
-                    org={orgname}
-                    bug={Bug}
-                    summary={Summary}
-                    openModal={openGuidelineModal}
-                  />
-                  <br />
-                </div>
-              );
-            })}
-          </div>
-        </Flex>
+        <div>
+          {data.map(({ id, orgname, Bug, Summary }) => {
+            return (
+              <div>
+                <Issue
+                  auth={authenticated}
+                  id={id}
+                  org={orgname}
+                  bug={Bug}
+                  summary={Summary}
+                  openModal={openGuidelineModal}
+                />
+                <br />
+              </div>
+            );
+          })}
+        </div>
       )}
     </Body>
   );

@@ -5,6 +5,7 @@ import { FiFilter } from "react-icons/fi";
 const Text: any = styled.p`
   font-size: ${props => (props.small ? "1.2rem" : "1.3rem")};
   text-align: ${props => (props.center ? "center" : null)};
+  color: ${props => (props.white ? "#fff" : null)};
   ${media.lessThan("small")`
   font-size: ${props => (props.small ? "1.05rem" : "1.2rem")};
   `};
@@ -14,27 +15,22 @@ const Text: any = styled.p`
 `;
 
 const Body: any = styled.div`
-  padding: 1rem;
   width: 100%;
-  padding-left: ${props => (props.banner ? "12em" : "8em")};
-  padding-right: ${props => (props.banner ? "12em" : "8em")};
+  padding ${props => (props.banner ? "2em 8rem" : "2em 8rem")};
   background: ${props => (props.blue ? "#0e2f5a" : null)};
   color: ${props => (props.white ? "#fff" : null)};
   ${media.lessThan("large")`
-  padding-left: ${props => (props.pad ? "3em" : "1rem")};
-  padding-right: ${props => (props.pad ? "3em" : "1rem")};
+  padding: ${props => (props.pad ? "1.5em 3rem" : "1rem")};
   `};
   ${media.lessThan("medium")`
-   padding-left: ${props => (props.pad ? "1.5em" : "1rem")};
-  padding-right: ${props => (props.pad ? "1.5em" : "1rem")};
+   padding: ${props => (props.pad ? "1.5em 1.5rem" : "1rem")};
   `};
   ${media.lessThan("small")`
-   padding-left: ${props => (props.pad ? "0.4em" : "0.2rem")};
-  padding-right: ${props => (props.pad ? "0.4em" : "0.2rem")};
+   padding: ${props => (props.pad ? "0.4em 0.4rem" : "0.2rem")};
   `};
 `;
 
-const Title: any = styled.h4`
+const Title: any = styled.h3`
   font-size: ${props => (props.small ? "1.5rem " : null)};
   font-weight: ${props => (props.unbold ? "normal" : null)};
   text-align: ${props => (props.center ? "center" : null)};
@@ -44,9 +40,9 @@ const Title: any = styled.h4`
    `};
 `;
 
-const BannerBody: any = styled.nav`
-  padding: 3rem;
-  background: transparent;
+const BannerBody: any = styled.div`
+  padding: 8rem 2rem;
+  background: #02203c;
   text-align: center;
   h1 {
     color: grey;
@@ -55,8 +51,13 @@ const BannerBody: any = styled.nav`
   a {
     padding-right: 10px;
   }
+  div {
+    img {
+      align-items: center;
+    }
+  }
   ${media.lessThan("small")`
-  padding : 4rem 2rem 2rem 2rem;
+  padding : 2rem 0.5rem;
   h1 {
     padding-bottom: 20px;
     font-size: 1.8em;
@@ -64,7 +65,7 @@ const BannerBody: any = styled.nav`
   }
   `};
   ${media.lessThan("medium")`
-  padding : 4rem 2rem 2rem 2rem;
+  padding : 3rem 1rem;
   h1 {
     padding-bottom: 20px;
     font-size: 2em;
@@ -99,11 +100,11 @@ const HeaderBody: any = styled.nav`
 `;
 
 const Button: any = styled.button`
-  padding: ${props => (props.small ? "0.1rem 1.7rem" : "0.7rem 2.5rem")};
+  padding: ${props => (props.small ? "0.1rem 1.7rem" : "0.5rem 2rem")};
   border: ${props => (props.white ? "1px solid #fff" : "1px solid #000")};
   outline: 0px;
-  border-radius: ${props => (props.round ? "5rem" : null)};
-  background: transparent;
+  border-radius: ${props => (props.round ? "0.5rem" : null)};
+  background: ${props => (props.coloured ? "#65320D" : "transparent")};
   color: ${props => (props.white ? " #fff" : "#000")};
   font-size: ${props => (props.small ? "1rem" : "1.2rem")};
   display: ${props => (props.flex ? "flex" : null)} ${media.lessThan("medium")`
@@ -153,18 +154,32 @@ const autoGrid = (minColumnWidth = 300, gridGap = 0) => ({
 });
 
 const IssueItems = styled.div({
-  ...autoGrid(290, 30),
+  ...autoGrid(310, 60),
   padding: "0.7em",
-  marginLeft: "0.3em",
   margin: "0.5em"
 });
 
-const Items = styled.div({
-  ...autoGrid(170, 40),
-  padding: "0.5em",
-  margin: "0.5rem",
-  marginLeft: "0.5em"
-});
+const Items = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 3rem;
+  div {
+    img {
+      max-width: 15rem;
+      height: auto;
+    }
+  }
+  ${media.lessThan("medium")`
+   display: flex;
+      flex-direction: column;
+      align-content: center;
+  `};
+  ${media.lessThan("small")`
+   display: flex;
+      flex-direction: column;
+      align-content: center;
+  `};
+`;
 
 const IssueCard = styled.div`
   padding: 0.5em 1em;
@@ -292,9 +307,33 @@ const FilterContain = styled.div`
       width: 20rem;
     }
   }
+
+  &: focus {
+
+  }
+`;
+
+const BigTitle = styled.h1` 
+text-align: ${props => (props.center ? "center" : null)};
+color: ${props => (props.white ? "white" : "#02203c")};
+font-size: ${props => (props.small ? "2.5rem" : "3rem")};
+padding: ${props => (props.banner ? "2rem 0.5rem 1rem" : "5rem 1rem 0.5rem")};
+${media.lessThan("large")`
+    font-size: ${props => (props.small ? "2.5rem" : "3rem")};
+    padding: 0.5rem 0.2rem;
+`}
+${media.lessThan("medium")`
+    font-size: ${props => (props.small ? "2.2rem" : "3rem")};
+    padding: 0.5rem 0.5rem;
+`}
+${media.lessThan("small")`
+font-size: ${props => (props.small ? "2rem" : "3rem")};
+padding: 0.5rem 0.5rem;
+`}
 `;
 
 export {
+  BigTitle,
   FilterContain,
   Bottom,
   Notification,

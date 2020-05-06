@@ -2,10 +2,13 @@ import React from "react";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import { inject, observer } from "mobx-react";
+import styled from "styled-components";
+import media from "styled-media-query";
+import Flex from "styled-flex-component";
 
 // import useWindowWidth from "../../styles/hook_style";
 import { Footer, Banner } from "../../components";
-import { Body, Text } from "../../styles/global";
+import { Body, Text, BigTitle } from "../../styles/global";
 import Wrapper from "../wrapper";
 
 import Features from "./features";
@@ -25,6 +28,27 @@ const T = gql`
   }
 `;
 
+const Grid = styled.div`
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 50% 50%;
+  ${media.lessThan("large")`
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+`};
+  ${media.lessThan("medium")`
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+`};
+  ${media.lessThan("small")`
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+`};
+`;
+
 const Home = (props): JSX.Element => {
   const { loading, data, error } = useQuery(T);
 
@@ -37,14 +61,33 @@ const Home = (props): JSX.Element => {
       }}
     >
       <Banner head="Home" />
+      <br />
+      <br />
+      <br />
 
       <Body>
-        <Text center>
-          Home Home Home Home Home Home Home Home Home Home Home Home Home Home
-          Home Home Home Home Home Home Home Home Home Home Home Home Home Home
-          Home Home{" "}
-        </Text>
+        <Grid>
+          <Flex justifyCenter>
+            <img
+              alt="Bounty Illustration"
+              src={"/illustration.svg"}
+              style={{ margin: "0px", maxWidth: "70%" }}
+            />
+          </Flex>
 
+          <div>
+            <BigTitle center small>
+              Contribute to Open Source Software{" "}
+            </BigTitle>
+            <Text center>
+              Home Home Home Home Home Home Home Home Home Home Home Home Home
+              Home Home Home Home Home Home Home Home Home Home Home Home Home
+              Home Home Home Home{" "}
+            </Text>
+          </div>
+        </Grid>
+
+        <br />
         <br />
         <Features />
         <br />
@@ -52,6 +95,9 @@ const Home = (props): JSX.Element => {
 
       <Issues />
 
+      <br />
+      <br />
+      <br />
       <br />
       <Footer />
     </div>

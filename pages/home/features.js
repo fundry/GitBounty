@@ -1,8 +1,7 @@
 import React from "react";
 import Flex from "styled-flex-component";
 
-import { Items, Text, Title } from "../../styles/global";
-import useWindowWidth from "../../styles/hook_style";
+import { Items, Text, Title, BigTitle } from "../../styles/global";
 
 const data = [
   {
@@ -32,61 +31,37 @@ const data = [
 ];
 
 const Features = () => {
-  const hooks = useWindowWidth();
-
   return (
     <div>
-      {hooks > 900 ? (
-        <Flex justifyBetween>
-          {data.map(({ id, title, summary }) => {
-            return (
-              <div key={id}>
-                <Flex justifyCenter>
-                  <img
-                    src="/feature.svg"
-                    alt="feature illustration"
-                    style={{
-                      maxWidth: "45%"
-                    }}
-                  />
-                </Flex>
+      <div>
+        <BigTitle small>
+          Why Build <b>Gitbounty </b>?{" "}
+        </BigTitle>
 
-                <Title center small>
-                  {title}{" "}
-                </Title>
-                <Text center small>
-                  {summary}
-                </Text>
-              </div>
-            );
-          })}
-        </Flex>
-      ) : (
-        <Items>
-          {data.map(({ id, title, summary }) => {
-            return (
-              <div key={id}>
-                <Flex justifyCenter>
-                  <img
-                    src="/feature.svg"
-                    alt="feature illustration"
-                    style={{
-                      maxWidth: "45%"
-                    }}
-                  />
-                </Flex>
-
-                <Title center small>
-                  {title}{" "}
-                </Title>
-                <Text center small>
-                  {summary}
-                </Text>
-              </div>
-            );
-          })}
-        </Items>
-      )}
+        <Text>
+          Issues from organizations on <a href="/">Github </a> can be viewed
+          through the issues column.{" "}
+        </Text>
+      </div>
+      <br />
+      <br />
+      <Items>
+        {data.map(({ id, title, summary }) => {
+          return (
+            <div key={id}>
+              <Flex justifyCenter>
+                <img src="/feature.svg" alt="feature illustration" style={{}} />
+              </Flex>
+              <br />
+              <Title center>{title} </Title>
+              <Text center small>
+                {summary}
+              </Text>
+              <br />
+            </div>
+          );
+        })}
+      </Items>
     </div>
   );
 };
