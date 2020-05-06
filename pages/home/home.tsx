@@ -88,6 +88,8 @@ const Home = (props): JSX.Element => {
         </Grid>
 
         <br />
+      </Body>
+      <Body style={{ backgroundColor: "#f7f7f7" }}>
         <br />
         <Features />
         <br />
